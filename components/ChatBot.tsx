@@ -98,7 +98,7 @@ export default function ChatBot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 bg-[#BAFF39] hover:bg-[#d5ff7d] text-[#1f2937] rounded-full p-4 shadow-[0_0_18px_rgba(186,255,57,0.45)] border border-[#BAFF39] z-40 transition-all duration-300 hover:scale-110"
+          className="fixed bottom-6 right-6 bg-[#d7eb7a] hover:brightness-105 text-[#1f2937] rounded-full p-4 shadow-[0_10px_25px_rgba(215,235,122,0.3)] border border-[#d7eb7a] z-40 transition-all duration-300 hover:scale-110"
           aria-label="Open chat"
         >
           <MessageCircle size={24} />

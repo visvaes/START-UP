@@ -4,8 +4,8 @@ import type { Metadata } from 'next'
 import ChatBotWrapper from '../components/ChatBotWrapper'
 
 export const metadata: Metadata = {
-  title: 'SoftCorp — Software Consulting Services',
-  description: 'Expert software consulting services across 30+ industries. Technology advisory, software development, architecture, and compliance consulting from experienced consultants.'
+  title: 'Zyron Tech — Digital Engineering Studio',
+  description: 'We build scalable digital platforms for startups and scaling teams worldwide, including SaaS, web apps, mobile apps, e-commerce, and digital marketing solutions.'
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }){

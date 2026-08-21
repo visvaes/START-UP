@@ -4,14 +4,15 @@
 
 html{scroll-behavior:smooth;} 
 :root{
-  --bg:#f5f5f3;
+  --bg:#f3f4ee;
   --card:#ffffff;
-  --panel:#efefee;
-  --line:#e5e7eb;
-  --primary:#6E6E6E;
-  --primary-dark:#4d4d4d;
-  --secondary:#BAFF39;
-  --secondary-soft:#edfdd0;
+  --panel:#edf0ea;
+  --line:#dfe7d5;
+  --primary:#4b5563;
+  --primary-dark:#1f2937;
+  --secondary:#cfe76d;
+  --secondary-strong:#9bbd2d;
+  --secondary-soft:#edf7d4;
   --muted:#6b7280;
 }
 
@@ -31,19 +32,19 @@ h1, h2, h3, h4, h5, h6, p, li, span, a, button {
 .text-slate-900 { color: var(--primary-dark) !important; }
 .text-slate-700 { color: rgba(77, 77, 77, 0.9) !important; }
 
-.hero-bg{background: linear-gradient(135deg, rgba(110,110,110,0.08) 0%, rgba(186,255,57,0.08) 100%); border-bottom: 1px solid rgba(110,110,110,0.1);} 
+.hero-bg{background: linear-gradient(135deg, rgba(110,110,110,0.08) 0%, rgba(207,231,109,0.15) 100%); border-bottom: 1px solid rgba(110,110,110,0.1);} 
 
 .card-rounded{ @apply rounded-lg shadow-sm p-6 border; background-color: var(--card); border-color: var(--line); }
 
-.btn-primary{ @apply inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#BAFF39] text-[#1f2937] font-semibold shadow-md transition-all duration-200 ease-out hover:bg-[#d5ff7d] hover:text-[#1f2937] }
+.btn-primary{ @apply inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#d7eb7a] text-[#1f2937] font-semibold transition-all duration-200 ease-out hover:brightness-105 }
 
-.btn-outline{ @apply inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-[#7f8f7b] bg-white/10 text-[#1f2937] font-semibold transition-all duration-200 ease-out hover:bg-[#BAFF39] hover:text-[#1f2937] hover:border-[#BAFF39] }
+.btn-outline{ @apply inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-[#c7d7a9] bg-white/60 text-[#1f2937] font-semibold transition-all duration-200 ease-out hover:bg-[#ddec79] hover:text-[#1f2937] hover:border-[#ddec79] }
 
 .nav-link {
-  color: rgba(77, 77, 77, 0.9);
+  color: rgba(31, 41, 55, 0.9);
   transition: color 0.2s ease;
 }
 
 .nav-link:hover {
-  color: #c9ff4a;
+  color: #8fbf2a;
 }

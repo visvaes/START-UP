@@ -1,28 +1,12 @@
-'use client'
-
-import React, { useState } from 'react'
+import React from 'react'
 import { Phone, Mail, MapPin, Linkedin, Twitter, MessageCircle } from 'lucide-react'
 
 export default function Contact(){
-  const [form, setForm] = useState({name:'',email:'',company:'',subject:'',message:''})
-  const [errors, setErrors] = useState<{[k:string]:string}>({})
-  const [submitted, setSubmitted] = useState(false)
-
-  function validate(){
-    const e: {[k:string]:string} = {}
-    if(!form.name) e.name = 'Full name is required'
-    if(!form.email) e.email = 'Work email is required'
-    else if(!/^[\w-.]+@[\w-]+\.[a-z]{2,}$/i.test(form.email)) e.email = 'Email is invalid'
-    if(!form.message) e.message = 'Message is required'
-    setErrors(e)
-    return Object.keys(e).length === 0
-  }
-
   return (
     <section id="contact" className="py-16">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-4">Get in Touch with Our Consulting Team</h2>
-        <p className="text-slate-600 text-lg mb-12">Ready to discuss your software consulting needs? Reach out to us directly using the contact details below.</p>
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-4xl font-bold mb-4">Ready to Build Something Great?</h2>
+        <p className="text-slate-600 text-lg mb-12">Tell us what you’re building — we’ll reply within 24 hours with a clear plan, timeline, and next steps.</p>
 
         <div className="grid md:grid-cols-2 gap-12">
           <div>
@@ -34,7 +18,7 @@ export default function Contact(){
                 <div>
                   <div className="font-semibold text-slate-900">Phone</div>
                   <a href="tel:+971502681703" className="text-[#4d4d4d] hover:underline">+971 50 2681703</a>
-                  <div className="text-xs text-slate-600">Available for WhatsApp and calls</div>
+                  <div className="text-xs text-slate-600">Available for calls and WhatsApp</div>
                 </div>
               </div>
 
@@ -43,7 +27,7 @@ export default function Contact(){
                 <div>
                   <div className="font-semibold text-slate-900">Email</div>
                   <a href="mailto:sasikumar7688@gmail.com" className="text-[#4d4d4d] hover:underline">sasikumar7688@gmail.com</a>
-                  <div className="text-xs text-slate-600">We respond within 30 minutes</div>
+                  <div className="text-xs text-slate-600">We usually respond within 24 hours</div>
                 </div>
               </div>
 
@@ -62,8 +46,8 @@ export default function Contact(){
               <div className="flex items-start gap-4">
                 <MapPin className="text-[#BAFF39] mt-1 flex-shrink-0" size={20} />
                 <div>
-                  <div className="font-semibold text-slate-900">Headquarters</div>
-                  <div className="text-slate-700">5900 S. Lake Forest Drive, McKinney, Dallas area, TX 75070</div>
+                  <div className="font-semibold text-slate-900">Dubai, UAE</div>
+                  <div className="text-slate-700">Digital engineering and growth studio building scalable platforms for ambitious teams worldwide.</div>
                 </div>
               </div>
             </div>
@@ -71,10 +55,10 @@ export default function Contact(){
             <div className="mt-8 pt-8 border-t border-slate-200">
               <h4 className="font-semibold text-slate-900 mb-4">Connect With Us</h4>
               <div className="flex gap-4">
-                <a href="#" className="p-3 bg-slate-100 rounded-lg text-[#4d4d4d] hover:bg-[#BAFF39] hover:text-[#1f2937] transition">
+                <a href="https://www.linkedin.com" className="p-3 bg-slate-100 rounded-lg text-[#4d4d4d] hover:bg-[#BAFF39] hover:text-[#1f2937] transition">
                   <Linkedin size={20} />
                 </a>
-                <a href="#" className="p-3 bg-slate-100 rounded-lg text-[#4d4d4d] hover:bg-[#BAFF39] hover:text-[#1f2937] transition">
+                <a href="https://x.com" className="p-3 bg-slate-100 rounded-lg text-[#4d4d4d] hover:bg-[#BAFF39] hover:text-[#1f2937] transition">
                   <Twitter size={20} />
                 </a>
               </div>
