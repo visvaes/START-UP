@@ -6,37 +6,37 @@ const services = [
     id: 'saas',
     title: 'SaaS Platforms',
     desc: 'Multi-tenant architecture with subscription billing and scalable APIs.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80'
+    image: 'https://cyberonesecurity.com/wp-content/uploads/2025/04/SaaS.jpg'
   },
   {
     id: 'web',
     title: 'Web Development',
     desc: 'High-performance apps built with modern frameworks for speed and scale.',
-    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80'
+    image: 'https://nagpurwebdesign.com/wp-content/uploads/2026/05/nagpur-website-design.jpg'
   },
   {
     id: 'mobile',
     title: 'Mobile Apps',
     desc: 'Cross-platform mobile apps with seamless experiences on every device.',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80'
+    image: 'https://cdn.pixabay.com/photo/2023/11/10/10/21/mobile-app-development-company-8379091_1280.png'
   },
   {
     id: 'ux',
     title: 'UI/UX Design',
     desc: 'Research-driven design systems that balance beauty with conversion.',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80'
+    image: 'https://www.growthaccelerationpartners.com/wp-content/uploads/2025/02/website-wireframe-design-whiteboard.webp'
   },
   {
     id: 'ecommerce',
     title: 'E-Commerce',
     desc: 'Custom storefronts and checkout flows engineered for high conversion.',
-    image: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=900&q=80'
+    image: 'https://img.magnific.com/free-vector/e-commerce-flat-concept_1284-22119.jpg?semt=ais_hybrid&w=740&q=80'
   },
   {
     id: 'marketing',
     title: 'Digital Marketing',
     desc: 'Data-driven SEO, acquisition, and conversion rate optimization.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80'
+    image: 'https://img.magnific.com/free-vector/gradient-affiliate-marketing-illustration_52683-82972.jpg?semt=ais_hybrid&w=740&q=80'
   }
 ]
 
