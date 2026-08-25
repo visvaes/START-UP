@@ -107,7 +107,7 @@ export default function ChatBot() {
 
       {/* Chat Widget */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 w-96 h-screen max-h-96 bg-white rounded-lg shadow-2xl flex flex-col z-50 overflow-hidden border border-[#BAFF39]">
+        <div className="fixed bottom-4 left-4 right-4 h-[min(32rem,calc(100vh-2rem))] md:bottom-6 md:left-auto md:right-6 md:h-screen md:max-h-96 w-auto md:w-96 bg-white rounded-lg shadow-2xl flex flex-col z-50 overflow-hidden border border-[#BAFF39]">
           {/* Header */}
           <div className="bg-[#BAFF39] text-[#1f2937] p-4 flex justify-between items-center border-b border-[#BAFF39]">
             <h3 className="font-semibold text-lg">Chat Assistant</h3>

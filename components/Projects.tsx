@@ -52,7 +52,7 @@ export default function Projects(){
     <section id="projects" className="py-16 bg-[#f3f4ee]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-5xl mb-12">
-          <h2 className="text-6xl md:text-7xl font-black tracking-[-0.06em] text-[#111827] mb-4">Selected Work</h2>
+          <h2 className="text-4xl md:text-7xl font-black tracking-[-0.06em] text-[#111827] mb-4">Selected Work</h2>
           <p className="text-[#4b5563] text-xl leading-relaxed">We partner with businesses to design and deliver scalable digital systems that support long-term growth, performance, and operational clarity.</p>
         </div>
       </div>

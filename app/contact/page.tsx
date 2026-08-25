@@ -49,16 +49,16 @@ export default function ContactPage(){
     <main className="min-h-screen bg-[#f3f4ee] text-[#111827]">
       <Navbar />
 
-      <section className="px-6 pb-20 pt-36 md:pt-44">
+      <section className="px-4 pb-12 pt-24 md:px-6 md:pb-20 md:pt-44">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.35fr] lg:items-start">
           <div>
             <span className="inline-flex items-center rounded-full border border-[#bfd85d]/70 bg-[#edf4d3] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#4e5d1d]">
               LET&apos;S TALK
             </span>
-            <h1 className="mt-8 max-w-xl text-5xl font-black leading-[0.95] tracking-[-0.06em] md:text-7xl">
+            <h1 className="mt-6 max-w-xl text-4xl font-black leading-[0.95] tracking-[-0.06em] md:mt-8 md:text-7xl">
               Let&apos;s build your <span className="text-[#9bbd2d]">next project.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#4b5563]">
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-[#4b5563] md:mt-6 md:text-lg">
               Share a brief overview and we&apos;ll respond with clear next steps, scope clarification, and the best engagement model for your goals.
             </p>
 

@@ -28,7 +28,7 @@ export default function CTA(){
             WHY CHOOSE US
           </span>
 
-          <h2 className="mt-8 text-5xl md:text-7xl font-black tracking-[-0.05em] leading-[0.9] text-[#111827]">
+          <h2 className="mt-6 md:mt-8 text-4xl md:text-7xl font-black tracking-[-0.05em] leading-[0.9] text-[#111827]">
             Why <span className="text-[#9bbd2d]">Choose Us</span>
           </h2>
 
@@ -60,7 +60,7 @@ export default function CTA(){
         <div className="mt-12 rounded-[28px] border border-[#dfe6d4] bg-[radial-gradient(circle_at_top_left,_rgba(207,231,109,0.2),_transparent_45%),linear-gradient(135deg,#eaf1d3_0%,#dcebb2_28%,#d9efc0_100%)] p-8 md:p-10">
           <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl">
-              <h3 className="text-4xl md:text-5xl font-black tracking-[-0.05em] text-[#111827] leading-none">
+              <h3 className="text-3xl md:text-5xl font-black tracking-[-0.05em] text-[#111827] leading-none">
                 Ready to build something scalable?
               </h3>
               <p className="mt-5 text-lg text-[#374151]">

@@ -51,7 +51,7 @@ export default function Services(){
         </div>
 
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <h2 className="text-5xl md:text-7xl font-black tracking-[-0.05em] leading-[0.9] text-[#111827]">
+          <h2 className="text-4xl md:text-7xl font-black tracking-[-0.05em] leading-[0.9] text-[#111827]">
             Engineering Digital
             <span className="block text-[#9bbd2d]">Excellence</span>
           </h2>

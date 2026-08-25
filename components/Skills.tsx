@@ -47,7 +47,7 @@ export default function Skills(){
     <section id="skills" className="py-16">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-5xl mb-12">
-          <h2 className="text-6xl md:text-7xl font-black tracking-[-0.06em] text-[#111827] mb-4">Our Technology Portfolio</h2>
+          <h2 className="text-4xl md:text-7xl font-black tracking-[-0.06em] text-[#111827] mb-4">Our Technology Portfolio</h2>
           <p className="text-slate-600 text-xl leading-relaxed">Our expert solution architects and software developers provide consulting services across a wide range of technologies and programming languages.</p>
         </div>
 
