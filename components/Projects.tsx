@@ -70,9 +70,9 @@ export default function Projects(){
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+      <div className="mx-auto grid max-w-7xl gap-6 px-6 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((p) => (
-          <div key={p.id} className="bg-[#f8f9f5] rounded-[22px] border border-[#dfe6d4] shadow-[0_10px_30px_rgba(17,24,39,0.04)] hover:-translate-y-1 transition cursor-pointer p-5">
+          <div key={p.id} className="cursor-pointer rounded-[24px] border border-[#dfe6d4] bg-[#f8f9f5] p-5 shadow-[0_12px_30px_rgba(17,24,39,0.04)] transition hover:-translate-y-1">
             <div className="mb-4 flex items-center justify-between">
               <div className="text-5xl font-black tracking-[-0.08em] text-[#dfe3df]">0{p.id}</div>
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#d7eb7a] text-[#1d2a12] shadow-lg shadow-[#d7eb7a]/30">
@@ -80,16 +80,16 @@ export default function Projects(){
               </div>
             </div>
 
-            <div className="text-sm text-[#4b5563] font-semibold mb-4">{p.subtitle}</div>
-            <h3 className="text-2xl md:text-[2.1rem] font-bold tracking-[-0.04em] text-[#111827] mb-4 leading-tight">{p.title}</h3>
-            <p className="text-[#4b5563] text-base leading-relaxed mb-5">{p.desc}</p>
+            <div className="mb-4 text-sm font-semibold text-[#4b5563]">{p.subtitle}</div>
+            <h3 className="mb-4 text-2xl font-bold leading-tight tracking-[-0.04em] text-[#111827] md:text-[2.1rem]">{p.title}</h3>
+            <p className="mb-5 text-base leading-relaxed text-[#4b5563]">{p.desc}</p>
 
             <div className="mb-5">
-              <h4 className="text-sm font-semibold text-[#111827] mb-2">Key Results:</h4>
-              <ul className="text-sm text-[#4b5563] space-y-1">
+              <h4 className="mb-2 text-sm font-semibold text-[#111827]">Key Results:</h4>
+              <ul className="space-y-1 text-sm text-[#4b5563]">
                 {p.results.map((r, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <span className="text-[#9bbd2d] mt-1">•</span>
+                    <span className="mt-1 text-[#9bbd2d]">•</span>
                     <span>{r}</span>
                   </li>
                 ))}
@@ -98,13 +98,13 @@ export default function Projects(){
 
             <div className="flex flex-wrap gap-2">
               {p.tags.map((tag) => (
-                <span key={tag} className="text-xs bg-[#edf4d3] text-[#2f2f2f] px-3 py-1 rounded-full border border-[#dfe3df]">
+                <span key={tag} className="rounded-full border border-[#dfe3df] bg-[#edf4d3] px-3 py-1 text-xs text-[#2f2f2f]">
                   {tag}
                 </span>
               ))}
             </div>
 
-            <button onClick={() => setSelectedProject(p)} className="mt-5 inline-flex items-center gap-2 text-[#111827] hover:text-[#1f2937] font-semibold text-sm">
+            <button onClick={() => setSelectedProject(p)} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#111827] hover:text-[#1f2937]">
               Explore <ExternalLink size={14} />
             </button>
           </div>

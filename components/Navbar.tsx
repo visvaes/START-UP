@@ -28,10 +28,10 @@ export default function Navbar(){
   }
   
   return (
-    <header className="fixed w-full z-40 bg-white shadow-none">
+    <header className="fixed w-full z-40 border-b border-[#dfe5d5] bg-white/95 backdrop-blur-md shadow-sm">
       <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6 md:py-4">
         <div className="flex items-center gap-3">
-          <div className="text-2xl font-black tracking-tight text-[#0f172a] md:text-3xl"><span>Saspal</span> <span className="text-[#9bbd2d]">Technologies</span></div>
+          <div className="text-2xl font-black tracking-tight text-[#111827] md:text-3xl"><span>Saspal</span> <span className="text-[#9bbd2d]">Technologies</span></div>
         </div>
 
         <div className="hidden md:flex items-center gap-8">
@@ -64,7 +64,7 @@ export default function Navbar(){
           <a
             href="/contact"
           >
-            <button className="bg-[#d7eb7a] text-[#0f172a] font-semibold px-5 py-2.5 rounded-full shadow-[0_10px_25px_rgba(215,235,122,0.3)] hover:brightness-105 transition">Get In Touch →</button>
+            <button className="bg-[#d7eb7a] text-[#1f2937] font-semibold px-5 py-2.5 rounded-full shadow-[0_10px_25px_rgba(215,235,122,0.3)] hover:brightness-105 transition">Get In Touch →</button>
           </a>
         </div>
 
@@ -76,7 +76,7 @@ export default function Navbar(){
       </nav>
 
       {open && (
-        <div className="md:hidden bg-white border-t border-[#edf0e7]">
+        <div className="md:hidden border-t border-[#edf0e7] bg-white">
           <div className="px-6 pb-6 flex flex-col gap-3 pt-4">
             {navItems.map((item) => (
               item.href.startsWith('/') ? (
@@ -84,7 +84,7 @@ export default function Navbar(){
                   key={item.label}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="text-[#111827] py-2 font-medium"
+                  className="py-2 font-medium text-[#111827]"
                 >
                   {item.label}
                 </Link>
@@ -97,7 +97,7 @@ export default function Navbar(){
                     setOpen(false)
                     scrollToSection(item.href)
                   }}
-                  className="text-[#111827] py-2 font-medium"
+                  className="py-2 font-medium text-[#111827]"
                 >
                   {item.label}
                 </a>
@@ -107,7 +107,7 @@ export default function Navbar(){
               href="/contact"
               onClick={() => setOpen(false)}
             >
-              <button className="mt-4 bg-[#d7eb7a] text-[#0f172a] font-semibold px-5 py-2.5 rounded-full w-full shadow-[0_10px_25px_rgba(215,235,122,0.3)]">Get In Touch →</button>
+              <button className="mt-4 bg-[#d7eb7a] text-[#1f2937] font-semibold px-5 py-2.5 rounded-full w-full shadow-[0_10px_25px_rgba(215,235,122,0.3)]">Get In Touch →</button>
             </a>
           </div>
         </div>

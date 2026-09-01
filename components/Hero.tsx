@@ -2,36 +2,67 @@ import React from 'react'
 
 export default function Hero(){
   return (
-    <div 
-      className="w-full px-4 py-16 md:px-6 md:py-24"
-      style={{
-        backgroundImage: `linear-gradient(135deg, rgba(11,15,20,0.78) 0%, rgba(18,23,28,0.8) 34%, rgba(186,255,57,0.18) 100%), url('https://imageio.forbes.com/specials-images/imageserve/655e5665f16e596330a94c9e/Startup-entrepreneur-uses-AI-to-automate-tasks-for-his-business-/0x0.jpg?width=960&dpr=1.5')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}
-    >
-      <div className="absolute inset-0 bg-black/20"></div>
+    <div className="w-full bg-[#f3f4ee] px-4 py-16 text-[#111827] md:px-6 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+          <div>
+            <div className="inline-flex items-center rounded-full border border-[#bfd85d]/70 bg-[#edf4d3] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#4e5d1d]">
+              Digital Engineering Studio
+            </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto">
-        <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-white drop-shadow-lg md:mb-2 md:text-sm">Digital Engineering Studio</div>
-          <h1 className="text-3xl md:text-6xl font-extrabold leading-tight text-white drop-shadow-lg max-w-4xl">We Build Scalable Digital Platforms</h1>
-          <p className="mt-4 text-base md:mt-6 md:text-lg text-white max-w-2xl leading-relaxed drop-shadow-lg">SaaS, web & mobile applications, platform modernization, and technical delivery for startups and scaling teams worldwide. We combine architecture-first thinking with execution-focused delivery to turn ambitious ideas into reliable, high-performing digital products.</p>
+            <h1 className="mt-6 max-w-3xl text-4xl font-black leading-[0.95] tracking-[-0.06em] text-[#111827] md:text-6xl xl:text-7xl">
+              We build the digital systems businesses trust to grow.
+            </h1>
 
-          <div className="mt-6 md:mt-8 flex gap-3 md:gap-4 flex-wrap">
-            <a href="#services"><button className="btn-outline">Explore Services</button></a>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#4b5563] md:text-lg">
+              Saspal Technologies helps startups and enterprise teams design and deliver scalable SaaS platforms, web products, automation workflows, and modern digital experiences with measurable business impact.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a href="#services" className="inline-flex items-center justify-center rounded-full bg-[#d7eb7a] px-6 py-3.5 text-sm font-semibold text-[#1f2937] shadow-[0_12px_28px_rgba(215,235,122,0.3)] transition hover:brightness-105">
+                Explore Services
+              </a>
+              <a href="/contact" className="inline-flex items-center justify-center rounded-full border border-[#1f2937]/20 bg-white/70 px-6 py-3.5 text-sm font-semibold text-[#1f2937] transition hover:bg-white">
+                Book a Consultation
+              </a>
+            </div>
+
+            <div className="mt-10 grid max-w-xl grid-cols-2 gap-4">
+              <div className="rounded-2xl border border-[#dfe6d4] bg-[#f8f9f5] p-4 shadow-sm">
+                <div className="text-3xl font-black text-[#111827]">14+</div>
+                <div className="mt-1 text-sm text-[#4b5563]">Years of software delivery</div>
+              </div>
+              <div className="rounded-2xl border border-[#dfe6d4] bg-[#f8f9f5] p-4 shadow-sm">
+                <div className="text-3xl font-black text-[#111827]">UAE</div>
+                <div className="mt-1 text-sm text-[#4b5563]">Dubai-based team</div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="mt-8 grid max-w-xl grid-cols-2 gap-3 md:mt-12 md:gap-4">
-          <div className="rounded-xl border border-white/25 bg-white/15 p-4 backdrop-blur-sm">
-            <div className="text-3xl font-bold text-white drop-shadow-lg">17+ yrs</div>
-            <div className="mt-1 text-sm text-white drop-shadow-lg">Experience</div>
-          </div>
-          <div className="rounded-xl border border-white/25 bg-white/15 p-4 backdrop-blur-sm">
-            <div className="text-3xl font-bold text-white drop-shadow-lg">UAE</div>
-            <div className="mt-1 text-sm text-white drop-shadow-lg">Dubai Based</div>
+          <div className="rounded-[30px] border border-[#dfe6d4] bg-white p-5 shadow-[0_20px_50px_rgba(17,24,39,0.06)]">
+            <div className="rounded-[24px] bg-[#f8f9f5] p-5 border border-[#dfe6d4]">
+              <div className="flex items-center justify-between border-b border-[#dfe5d5] pb-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-[#4b5563]">Delivery model</p>
+                  <h2 className="mt-2 text-2xl font-bold text-[#111827]">Product engineering</h2>
+                </div>
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#d7eb7a] text-[#1f2937] font-black">S</div>
+              </div>
+
+              <div className="mt-6 space-y-4">
+                {[
+                  'Architecture-first strategy',
+                  'Secure, scalable delivery',
+                  'DevOps and automation',
+                  'Modern product execution'
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3 rounded-2xl border border-[#dfe5d5] bg-white px-3 py-3 text-sm text-[#111827]">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#d7eb7a] text-[#1f2937] text-xs font-black">✓</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
