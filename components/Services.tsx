@@ -3,40 +3,58 @@ import { ArrowUpRight } from 'lucide-react'
 
 const services = [
   {
-    id: 'saas',
-    title: 'SaaS Platforms',
-    desc: 'Multi-tenant architecture with subscription billing and scalable APIs.',
-    image: 'https://cyberonesecurity.com/wp-content/uploads/2025/04/SaaS.jpg'
+    id: 'enterprise',
+    title: 'Enterprise Software Delivery',
+    desc: '14 years of experience delivering high-impact applications for HR, media, education, travel, and e-commerce environments with a focus on reliability and business value.',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80'
   },
   {
-    id: 'web',
-    title: 'Web Development',
-    desc: 'High-performance apps built with modern frameworks for speed and scale.',
+    id: 'microservices',
+    title: 'Microservices & APIs',
+    desc: 'Designing modular, distributed systems with REST/JSON services, secure integrations, and scalable service boundaries for enterprise-grade platforms.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80'
+  },
+  {
+    id: 'webapps',
+    title: 'React, .NET & Node Solutions',
+    desc: 'Building modern user experiences and robust backend services using React, Node.js, .NET, Java, SQL, and enterprise integration patterns.',
     image: 'https://nagpurwebdesign.com/wp-content/uploads/2026/05/nagpur-website-design.jpg'
   },
   {
-    id: 'mobile',
-    title: 'Mobile Apps',
-    desc: 'Cross-platform mobile apps with seamless experiences on every device.',
-    image: 'https://cdn.pixabay.com/photo/2023/11/10/10/21/mobile-app-development-company-8379091_1280.png'
+    id: 'devops',
+    title: 'CI/CD & DevOps Automation',
+    desc: 'Automating delivery pipelines with Jenkins, Git, Selenium, PowerShell, Groovy, and monitoring tools to improve release quality and production stability.',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80'
   },
   {
-    id: 'ux',
-    title: 'UI/UX Design',
-    desc: 'Research-driven design systems that balance beauty with conversion.',
-    image: 'https://www.growthaccelerationpartners.com/wp-content/uploads/2025/02/website-wireframe-design-whiteboard.webp'
+    id: 'travel',
+    title: 'Aviation & Travel Booking Systems',
+    desc: 'Specialized in secure flight booking and commerce systems requiring strong rules engine logic, data integrity, payment flows, and operational visibility.',
+    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80'
   },
   {
-    id: 'ecommerce',
-    title: 'E-Commerce',
-    desc: 'Custom storefronts and checkout flows engineered for high conversion.',
+    id: 'security',
+    title: 'Secure, Compliant Engineering',
+    desc: 'Applying OWASP, PCI DSS awareness, production support expertise, and secure coding practices to protect business-critical systems and customer data.',
     image: 'https://img.magnific.com/free-vector/e-commerce-flat-concept_1284-22119.jpg?semt=ais_hybrid&w=740&q=80'
   },
   {
-    id: 'marketing',
-    title: 'Digital Marketing',
-    desc: 'Data-driven SEO, acquisition, and conversion rate optimization.',
-    image: 'https://img.magnific.com/free-vector/gradient-affiliate-marketing-illustration_52683-82972.jpg?semt=ais_hybrid&w=740&q=80'
+    id: 'ai',
+    title: 'AI-Assisted Engineering',
+    desc: 'Using GitHub Copilot, ChatGPT, and AI-enabled review and automation workflows to improve productivity, code quality, and delivery speed.',
+    image: 'https://www.growthaccelerationpartners.com/wp-content/uploads/2025/02/website-wireframe-design-whiteboard.webp'
+  },
+  {
+    id: 'architecture',
+    title: 'Architecture & Design Leadership',
+    desc: 'Translating business requirements into architecture, design reviews, project plans, estimations, and scalable technical roadmaps for distributed systems.',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80'
+  },
+  {
+    id: 'support',
+    title: 'Production Support & Team Leadership',
+    desc: 'Driving sprint planning, retrospectives, burndown tracking, production support, and mentorship to keep cross-functional teams aligned and effective.',
+    image: 'https://cdn.pixabay.com/photo/2023/11/10/10/21/mobile-app-development-company-8379091_1280.png'
   }
 ]
 

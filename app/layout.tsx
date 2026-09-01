@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import ChatBotWrapper from '../components/ChatBotWrapper'
 
 export const metadata: Metadata = {
-  title: 'Zyron Tech — Digital Engineering Studio',
+  title: 'Saspal Technologies — Digital Engineering Studio',
   description: 'We build scalable digital platforms for startups and scaling teams worldwide, including SaaS, web apps, mobile apps, e-commerce, and digital marketing solutions.'
 }
 

@@ -29,7 +29,7 @@ export default function ShareNeedsPage() {
                   S
                 </div>
                   <div>
-                  <div className="text-3xl font-extrabold leading-none text-[var(--primary-dark)]"><span>Zyron</span> <span className="text-[#9bbd2d]">Tech</span></div>
+                  <div className="text-3xl font-extrabold leading-none text-[var(--primary-dark)]"><span>Saspal</span> <span className="text-[#9bbd2d]">Technologies</span></div>
                   <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
                     Software Development
                   </div>
@@ -57,7 +57,7 @@ export default function ShareNeedsPage() {
       <div className="mx-auto max-w-[1500px] px-4 pb-16 pt-8 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-8 xl:grid-cols-[1.05fr_1.8fr_0.8fr]">
           <aside className="pt-10 xl:pt-14">
-            <h2 className="mb-6 text-4xl font-light text-[var(--primary-dark)]">About Zyron Tech</h2>
+            <h2 className="mb-6 text-4xl font-light text-[var(--primary-dark)]">About Saspal Technologies</h2>
             <ul className="space-y-5 text-[1.08rem] text-[var(--primary)]">
               {bulletPoints.map((item, index) => (
                 <li key={item} className="flex gap-3 leading-snug">
@@ -72,7 +72,7 @@ export default function ShareNeedsPage() {
 
           <section className="rounded-none bg-transparent pt-5">
             <h1 className="mb-4 text-4xl font-light tracking-tight text-[var(--primary-dark)] xl:text-[3rem]">
-              Software Consulting <span className="font-semibold">| Zyron Tech</span>
+              Software Consulting <span className="font-semibold">| Saspal Technologies</span>
             </h1>
 
             <p className="mb-6 max-w-[620px] text-lg text-[var(--primary)]">

@@ -31,7 +31,7 @@ export default function Navbar(){
     <header className="fixed w-full z-40 bg-white shadow-none">
       <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6 md:py-4">
         <div className="flex items-center gap-3">
-          <div className="text-2xl font-black tracking-tight text-[#0f172a] md:text-3xl"><span>Zyron</span> <span className="text-[#9bbd2d]">Tech</span></div>
+          <div className="text-2xl font-black tracking-tight text-[#0f172a] md:text-3xl"><span>Saspal</span> <span className="text-[#9bbd2d]">Technologies</span></div>
         </div>
 
         <div className="hidden md:flex items-center gap-8">
@@ -61,9 +61,6 @@ export default function Navbar(){
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <button className="p-2 rounded-full border border-[#dfe5d5] bg-white text-[#111827] hover:border-[#7aa21d] transition">
-            ☼
-          </button>
           <a
             href="/contact"
           >
@@ -72,9 +69,6 @@ export default function Navbar(){
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <button aria-label="Toggle theme" className="flex h-9 w-9 items-center justify-center rounded-full border border-[#dfe5d5] bg-white text-[#111827]">
-            ☼
-          </button>
           <button aria-label="Toggle menu" onClick={() => setOpen(!open)} className="flex h-9 w-9 items-center justify-center rounded-full border border-[#dfe5d5] bg-white text-[#111827]">
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>

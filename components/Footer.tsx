@@ -10,9 +10,9 @@ export default function Footer() {
         <div className="mb-12 grid gap-8 md:grid-cols-4">
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#BAFF39] font-bold text-[#1f2937]">ZT</div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#BAFF39] font-bold text-[#1f2937]">ST</div>
               <div>
-                <div className="font-semibold text-white"><span className="text-[#111827]">Zyron</span> <span className="text-[#BAFF39]">Tech</span></div>
+                <div className="font-semibold text-white"><span className="text-[#111827]">Saspal</span> <span className="text-[#BAFF39]">Technologies</span></div>
                 <div className="text-xs text-slate-200">Digital Engineering</div>
               </div>
             </div>
@@ -61,7 +61,7 @@ export default function Footer() {
         <div className="border-t border-slate-700 pt-8">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="text-sm text-slate-400">
-              © {currentYear} Zyron Tech – Digital Engineering Studio. All rights reserved.
+              © {currentYear} Saspal Technologies – Digital Engineering Studio. All rights reserved.
             </div>
 
             <div className="flex gap-4">
