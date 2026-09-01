@@ -6,6 +6,51 @@ import { ArrowRight, CalendarClock, Linkedin, Mail, MapPin, Phone, Send } from '
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 
+declare global {
+  interface Window {
+    emailjs?: {
+      send: (serviceId: string, templateId: string, templateParams: Record<string, string>, publicKey: string) => Promise<unknown>
+    }
+  }
+}
+
+const EMAILJS_PUBLIC_KEY = 'W1ExhuOeWL_-vZED8'
+const EMAILJS_SERVICE_ID = 'service_vlrnxv7'
+const EMAILJS_TEMPLATE_ID = 'template_3128zl4'
+
+const countryCodes = [
+  { code: '+971', label: 'UAE (+971)' },
+  { code: '+1', label: 'USA / Canada (+1)' },
+  { code: '+44', label: 'UK (+44)' },
+  { code: '+91', label: 'India (+91)' },
+  { code: '+61', label: 'Australia (+61)' },
+  { code: '+65', label: 'Singapore (+65)' },
+  { code: '+966', label: 'Saudi Arabia (+966)' },
+  { code: '+971', label: 'Dubai (+971)' },
+  { code: '+92', label: 'Pakistan (+92)' },
+  { code: '+93', label: 'Afghanistan (+93)' },
+  { code: '+94', label: 'Sri Lanka (+94)' },
+  { code: '+31', label: 'Netherlands (+31)' },
+  { code: '+32', label: 'Belgium (+32)' },
+  { code: '+33', label: 'France (+33)' },
+  { code: '+34', label: 'Spain (+34)' },
+  { code: '+49', label: 'Germany (+49)' },
+  { code: '+52', label: 'Mexico (+52)' },
+  { code: '+55', label: 'Brazil (+55)' },
+  { code: '+60', label: 'Malaysia (+60)' },
+  { code: '+62', label: 'Indonesia (+62)' },
+  { code: '+63', label: 'Philippines (+63)' },
+  { code: '+66', label: 'Thailand (+66)' },
+  { code: '+81', label: 'Japan (+81)' },
+  { code: '+82', label: 'South Korea (+82)' },
+  { code: '+86', label: 'China (+86)' },
+  { code: '+880', label: 'Bangladesh (+880)' },
+  { code: '+971', label: 'Abu Dhabi (+971)' },
+  { code: '+972', label: 'Israel (+972)' },
+  { code: '+971', label: 'Sharjah (+971)' },
+  { code: '+977', label: 'Nepal (+977)' }
+]
+
 const contactItems = [
   {
     icon: Mail,
@@ -40,10 +85,55 @@ const contactItems = [
 export default function ContactPage(){
   const [submitted, setSubmitted] = useState(false)
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>){
+  async function handleSubmit(event: FormEvent<HTMLFormElement>){
     event.preventDefault()
-    setSubmitted(true)
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const name = String(formData.get('name') || '').trim()
+    const countryCode = String(formData.get('countryCode') || '+971')
+    const phone = String(formData.get('phone') || '').trim()
+    const email = String(formData.get('email') || '').trim()
+    const message = String(formData.get('message') || '').trim()
+
+    const fullPhone = `${countryCode} ${phone}`.trim()
+    const phoneLink = `tel:${fullPhone.replace(/\s+/g, '')}`
+
+    const payload = {
+      name,
+      from_name: name,
+      phone: fullPhone,
+      phone_link: phoneLink,
+      phone_html: `<a href="${phoneLink}">${fullPhone}</a>`,
+      email,
+      message
+    }
+
+    try {
+      await (window as any).emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, payload, EMAILJS_PUBLIC_KEY)
+      setSubmitted(true)
+      form.reset()
+    } catch (error) {
+      console.error('EmailJS error:', error)
+      alert('Something went wrong while sending your message. Please try again or email us directly.')
+    }
   }
+
+  React.useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js'
+    script.async = true
+    script.onload = () => {
+      if ((window as any).emailjs) {
+        ;(window as any).emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY })
+      }
+    }
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
 
   return (
     <main className="min-h-screen bg-[#f3f4ee] text-[#111827]">
@@ -87,37 +177,32 @@ export default function ContactPage(){
             </div>
 
             {submitted ? (
-              <div className="rounded-2xl border border-[#bfd85d] bg-[#edf4d3] p-6 text-[#1d2a12]">
-                <h3 className="text-xl font-bold">Thanks for reaching out.</h3>
-                <p className="mt-2">Your brief is ready for review. We&apos;ll get back to you within 24 hours.</p>
-                <button onClick={() => setSubmitted(false)} className="mt-5 font-semibold underline underline-offset-4">Send another brief</button>
+              <div className="rounded-[28px] border border-[#d7eb7a] bg-[#d7eb7a] p-8 text-[#1d2a12] shadow-[0_16px_40px_rgba(215,235,122,0.18)]">
+                <h3 className="text-4xl font-black tracking-[-0.06em]">New Project Enquiry</h3>
+                <p className="mt-4 text-lg font-medium">Someone has contacted you through your saspal technologies.</p>
+                <button onClick={() => setSubmitted(false)} className="mt-6 font-semibold underline underline-offset-4">Send another brief</button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid gap-5 md:grid-cols-2">
-                  <label className="text-sm font-semibold text-[#111827]">Full Name
+                  <label className="text-sm font-semibold text-[#111827]">Name
                     <input required name="name" placeholder="Your full name" className="mt-2 w-full rounded-xl border border-[#dfe5d5] bg-white px-4 py-3 font-normal outline-none transition placeholder:text-[#9ca3af] focus:border-[#9bbd2d]" />
                   </label>
-                  <label className="text-sm font-semibold text-[#111827]">Email Address
-                    <input required type="email" name="email" placeholder="you@company.com" className="mt-2 w-full rounded-xl border border-[#dfe5d5] bg-white px-4 py-3 font-normal outline-none transition placeholder:text-[#9ca3af] focus:border-[#9bbd2d]" />
+                  <label className="text-sm font-semibold text-[#111827]">Phone Number
+                    <div className="mt-2 flex items-center gap-2">
+                      <select name="countryCode" defaultValue="+971" className="w-24 shrink-0 rounded-xl border border-[#dfe5d5] bg-white px-2 py-3 text-sm font-normal outline-none transition focus:border-[#9bbd2d]">
+                        {countryCodes.map(({ code, label }) => (
+                          <option key={`${code}-${label}`} value={code}>{code}</option>
+                        ))}
+                      </select>
+                      <input required type="tel" name="phone" placeholder="50 123 4567" className="w-full rounded-xl border border-[#dfe5d5] bg-white px-4 py-3 font-normal outline-none transition placeholder:text-[#9ca3af] focus:border-[#9bbd2d]" />
+                    </div>
                   </label>
                 </div>
 
-                <div className="grid gap-5 md:grid-cols-2">
-                  <label className="text-sm font-semibold text-[#111827]">Company
-                    <input name="company" placeholder="Company / organization" className="mt-2 w-full rounded-xl border border-[#dfe5d5] bg-white px-4 py-3 font-normal outline-none transition placeholder:text-[#9ca3af] focus:border-[#9bbd2d]" />
-                  </label>
-                  <label className="text-sm font-semibold text-[#111827]">Project Type
-                    <select name="type" defaultValue="" className="mt-2 w-full rounded-xl border border-[#dfe5d5] bg-white px-4 py-3 font-normal outline-none transition focus:border-[#9bbd2d]">
-                      <option value="" disabled>Select a type</option>
-                      <option>SaaS platform</option>
-                      <option>Web application</option>
-                      <option>Mobile application</option>
-                      <option>Platform modernization</option>
-                      <option>E-commerce</option>
-                    </select>
-                  </label>
-                </div>
+                <label className="block text-sm font-semibold text-[#111827]">Email
+                  <input required type="email" name="email" placeholder="you@company.com" className="mt-2 w-full rounded-xl border border-[#dfe5d5] bg-white px-4 py-3 font-normal outline-none transition placeholder:text-[#9ca3af] focus:border-[#9bbd2d]" />
+                </label>
 
                 <label className="block text-sm font-semibold text-[#111827]">Project Details
                   <textarea required name="message" rows={6} placeholder="Share your goals, current state, timeline, and any constraints." className="mt-2 w-full resize-none rounded-xl border border-[#dfe5d5] bg-white px-4 py-3 font-normal leading-relaxed outline-none transition placeholder:text-[#9ca3af] focus:border-[#9bbd2d]" />
