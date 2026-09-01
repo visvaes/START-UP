@@ -2,6 +2,7 @@ import './globals.css'
 import React from 'react'
 import type { Metadata } from 'next'
 import ChatBotWrapper from '../components/ChatBotWrapper'
+import FloatingDock from '../components/FloatingDock'
 
 export const metadata: Metadata = {
   title: 'Saspal Technologies — Digital Engineering Studio',
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
     <html lang="en">
       <body>
         {children}
+        <FloatingDock />
         <ChatBotWrapper />
       </body>
     </html>
