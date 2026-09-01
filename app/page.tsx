@@ -1,31 +1,37 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
+import Stats from '../components/Stats'
 import Services from '../components/Services'
-import CTA from '../components/CTA'
+import Industries from '../components/Industries'
+import Technology from '../components/Technology'
+import WhyChooseUs from '../components/WhyChooseUs'
 import Projects from '../components/Projects'
+import Achievements from '../components/Achievements'
+import Testimonials from '../components/Testimonials'
+import ContactCTA from '../components/ContactCTA'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 
 export default function Home(){
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#f3f4ee] text-[#111827]">
       <Navbar />
-      
-      <section id="home" className="scroll-mt-28 pt-16 md:pt-20">
+
+      <section id="home">
         <Hero />
       </section>
 
-      <div className="container mx-auto px-4 py-10 md:px-6 md:py-16">
-        <Services />
-        <CTA />
-        <Projects />
-      </div>
-
-      <div className="container mx-auto px-4 py-10 md:px-6 md:py-16">
-        <Contact />
-      </div>
-
+      <Stats />
+      <Services />
+      <Industries />
+      <Technology />
+      <WhyChooseUs />
+      <Projects />
+      <Achievements />
+      <Testimonials />
+      <ContactCTA />
+      <Contact />
       <Footer />
     </main>
   )

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { ExternalLink, X } from 'lucide-react'
+import { ExternalLink, X, ArrowUpRight, CheckCircle2 } from 'lucide-react'
 
 const projects = [
   {
@@ -14,8 +14,7 @@ const projects = [
     tags: ['Aviation', 'Flight Booking', 'Travel Tech', 'Enterprise Systems'],
     challenges: ['Complex business rules', 'High transaction sensitivity', 'System integration across services'],
     solution: 'Built a structured approach to booking logic, integration, and support operations that strengthened reliability and improved business continuity for critical travel workflows.',
-    link: '#contact',
-    image: ''
+    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 2,
@@ -27,8 +26,7 @@ const projects = [
     tags: ['Java', '.NET', 'React', 'Enterprise Apps', 'Web Development'],
     challenges: ['Legacy constraints', 'Process fragmentation', 'Need for maintainable delivery'],
     solution: 'Reworked workflows and application design using modern technical patterns, better architecture, and a stronger CI/CD process to improve release confidence and system performance.',
-    link: '#contact',
-    image: ''
+    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 3,
@@ -40,8 +38,7 @@ const projects = [
     tags: ['Microservices', 'CI/CD', 'Jenkins', 'Monitoring', 'Automation'],
     challenges: ['Manual delivery burden', 'Limited visibility', 'Deployment risk'],
     solution: 'Introduced deployment automation, quality gates, service-level structure, and monitoring capabilities so the systems could be delivered and supported with much greater reliability.',
-    link: '#contact',
-    image: ''
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 4,
@@ -53,8 +50,7 @@ const projects = [
     tags: ['E-Commerce', 'Secure Coding', 'Integrations', 'Business Platforms'],
     challenges: ['Payment and safety considerations', 'Data consistency', 'System complexity'],
     solution: 'Designed services and workflows around compliance awareness, robust integrations, and measurable operational support to keep critical customer journeys stable and scalable.',
-    link: '#contact',
-    image: ''
+    image: 'https://images.unsplash.com/photo-1556742049-0a6796d7c782?auto=format&fit=crop&w=1200&q=80'
   }
 ]
 
@@ -62,114 +58,148 @@ export default function Projects(){
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[number] | null>(null)
 
   return (
-    <section id="projects" className="py-16 bg-[#f3f4ee]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-5xl mb-12">
-          <h2 className="text-4xl md:text-7xl font-black tracking-[-0.06em] text-[#111827] mb-4">Selected Work</h2>
-          <p className="text-[#4b5563] text-xl leading-relaxed">We partner with businesses to design and deliver scalable digital systems that support long-term growth, performance, and operational clarity.</p>
+    <section id="projects" className="py-24 bg-[#f3f4ee] text-[#111827]">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="mb-6 flex items-center gap-3">
+          <span className="inline-flex items-center rounded-full border border-[#bfd85d]/70 bg-[#edf4d3] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#4e5d1d]">
+            SELECTED CASE STUDIES
+          </span>
         </div>
-      </div>
 
-      <div className="mx-auto grid max-w-7xl gap-6 px-6 md:grid-cols-2 xl:grid-cols-3">
-        {projects.map((p) => (
-          <div key={p.id} className="cursor-pointer rounded-[24px] border border-[#dfe6d4] bg-[#f8f9f5] p-5 shadow-[0_12px_30px_rgba(17,24,39,0.04)] transition hover:-translate-y-1">
-            <div className="mb-4 flex items-center justify-between">
-              <div className="text-5xl font-black tracking-[-0.08em] text-[#dfe3df]">0{p.id}</div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#d7eb7a] text-[#1d2a12] shadow-lg shadow-[#d7eb7a]/30">
-                <ExternalLink size={18} />
+        <div className="max-w-4xl mb-16">
+          <h2 className="text-4xl sm:text-6xl font-black tracking-[-0.05em] text-[#111827] leading-[0.95]">
+            Featured <span className="text-[#9bbd2d]">Engineering Projects</span>
+          </h2>
+          <p className="mt-4 text-slate-600 text-lg sm:text-xl leading-relaxed">
+            We partner with businesses to design and deliver scalable digital systems that support long-term growth, performance, and operational clarity.
+          </p>
+        </div>
+
+        {/* Large Enterprise Case Study Card Layout */}
+        <div className="space-y-12">
+          {projects.map((p, idx) => (
+            <div
+              key={p.id}
+              className="group overflow-hidden rounded-[32px] border border-[#dfe6d4] bg-[#f8f9f5] shadow-[0_12px_35px_rgba(17,24,39,0.05)] transition-all duration-500 hover:shadow-2xl hover:border-[#bfd85d]"
+            >
+              <div className="grid lg:grid-cols-12 gap-0 items-center">
+                {/* Left Side Visual Image */}
+                <div className={`lg:col-span-5 relative h-72 lg:h-full min-h-[320px] overflow-hidden ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/70 via-transparent to-transparent lg:hidden" />
+                  <div className="absolute top-6 left-6 rounded-full bg-[#1f2937]/90 px-4 py-1.5 text-xs font-bold text-[#d7eb7a] backdrop-blur-md border border-white/10">
+                    0{p.id} • {p.subtitle}
+                  </div>
+                </div>
+
+                {/* Right Side Content Details */}
+                <div className={`lg:col-span-7 p-8 lg:p-12 ${idx % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  <span className="hidden lg:inline-block text-xs font-bold uppercase tracking-widest text-[#9bbd2d] mb-2">
+                    Case Study 0{p.id} — {p.subtitle}
+                  </span>
+                  <h3 className="text-3xl sm:text-4xl font-black text-[#111827] tracking-tight leading-snug mb-4">
+                    {p.title}
+                  </h3>
+                  <p className="text-base text-[#4b5563] leading-relaxed mb-6">
+                    {p.desc}
+                  </p>
+
+                  <div className="mb-6">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#111827] mb-3">Key Results Delivered:</h4>
+                    <div className="grid sm:grid-cols-2 gap-2">
+                      {p.results.map((r, i) => (
+                        <div key={i} className="flex items-center gap-2 text-sm text-[#374151]">
+                          <CheckCircle2 size={15} className="text-[#9bbd2d] shrink-0" />
+                          <span>{r}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {p.tags.map((tag) => (
+                      <span key={tag} className="rounded-full bg-[#edf4d3] border border-[#bfd85d]/60 px-3.5 py-1 text-xs font-semibold text-[#4e5d1d]">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={() => setSelectedProject(p)}
+                    className="inline-flex items-center gap-2 rounded-full bg-[#0f172a] px-6 py-3.5 text-sm font-bold text-white shadow-md hover:bg-[#1f2937] transition"
+                  >
+                    Explore Case Study Details <ArrowUpRight size={16} className="text-[#d7eb7a]" />
+                  </button>
+                </div>
               </div>
             </div>
-
-            <div className="mb-4 text-sm font-semibold text-[#4b5563]">{p.subtitle}</div>
-            <h3 className="mb-4 text-2xl font-bold leading-tight tracking-[-0.04em] text-[#111827] md:text-[2.1rem]">{p.title}</h3>
-            <p className="mb-5 text-base leading-relaxed text-[#4b5563]">{p.desc}</p>
-
-            <div className="mb-5">
-              <h4 className="mb-2 text-sm font-semibold text-[#111827]">Key Results:</h4>
-              <ul className="space-y-1 text-sm text-[#4b5563]">
-                {p.results.map((r, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="mt-1 text-[#9bbd2d]">•</span>
-                    <span>{r}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {p.tags.map((tag) => (
-                <span key={tag} className="rounded-full border border-[#dfe3df] bg-[#edf4d3] px-3 py-1 text-xs text-[#2f2f2f]">
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <button onClick={() => setSelectedProject(p)} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#111827] hover:text-[#1f2937]">
-              Explore <ExternalLink size={14} />
-            </button>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Project Detail Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#BAFF39]">
-            <div className="sticky top-0 bg-white border-b border-[#BAFF39] p-6 flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-slate-900">{selectedProject.title}</h2>
-              <button onClick={() => setSelectedProject(null)} className="text-slate-400 hover:text-slate-600">
-                <X size={24} />
+        <div className="fixed inset-0 bg-[#0f172a]/80 backdrop-blur-md flex items-center justify-center p-4 z-50 animate-in fade-in duration-200">
+          <div className="bg-white rounded-[28px] max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-[#bfd85d] shadow-2xl">
+            <div className="sticky top-0 bg-white border-b border-[#dfe5d5] p-6 flex items-center justify-between z-10">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-widest text-[#9bbd2d]">{selectedProject.subtitle}</span>
+                <h2 className="text-2xl font-black text-[#111827]">{selectedProject.title}</h2>
+              </div>
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-[#f8f9f5] border border-[#dfe5d5] text-[#111827] hover:bg-[#d7eb7a]"
+              >
+                <X size={20} />
               </button>
             </div>
 
-            <div className="p-6">
-              <div className="mb-6">
-                <h3 className="text-sm text-[#4d4d4d] font-semibold mb-2">{selectedProject.subtitle}</h3>
-                <p className="text-slate-700 mb-4">{selectedProject.fullDesc}</p>
+            <div className="p-6 md:p-8 space-y-6">
+              <div className="rounded-2xl overflow-hidden h-64 w-full">
+                <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h3 className="text-lg font-bold text-[#111827] mb-2">Overview</h3>
+                <p className="text-base text-[#4b5563] leading-relaxed">{selectedProject.fullDesc}</p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6 pt-4 border-t border-[#dfe5d5]">
                 <div>
-                  <h4 className="font-bold text-slate-900 mb-3">Challenges</h4>
-                  <ul className="space-y-2">
-                    {selectedProject.challenges?.map((challenge, i) => (
-                      <li key={i} className="flex items-start gap-2 text-slate-600 text-sm">
-                        <span className="text-red-500 mt-1">•</span>
-                        <span>{challenge}</span>
+                  <h4 className="text-sm font-bold uppercase tracking-wider text-red-600 mb-2">Challenges Addressed</h4>
+                  <ul className="space-y-2 text-sm text-[#4b5563]">
+                    {selectedProject.challenges.map((c, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="text-red-500 font-bold">•</span>
+                        <span>{c}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-slate-900 mb-3">Key Results</h4>
-                  <ul className="space-y-2">
-                    {selectedProject.results.map((result, i) => (
-                      <li key={i} className="flex items-start gap-2 text-slate-600 text-sm">
-                        <span className="text-[#b5b7b2] mt-1">•</span>
-                        <span>{result}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <h4 className="text-sm font-bold uppercase tracking-wider text-[#9bbd2d] mb-2">Engineering Solution</h4>
+                  <p className="text-sm text-[#4b5563] leading-relaxed">{selectedProject.solution}</p>
                 </div>
               </div>
 
-              <div className="mb-6">
-                <h4 className="font-bold text-slate-900 mb-3">Solution</h4>
-                <p className="text-slate-600 text-sm">{selectedProject.solution}</p>
+              <div className="pt-6 border-t border-[#dfe5d5] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.tags.map((t) => (
+                    <span key={t} className="rounded-full bg-[#edf4d3] border border-[#bfd85d] px-3 py-1 text-xs font-semibold text-[#4e5d1d]">{t}</span>
+                  ))}
+                </div>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d7eb7a] px-6 py-3 text-sm font-bold text-[#1f2937]"
+                >
+                  Discuss Similar Project →
+                </a>
               </div>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {selectedProject.tags.map((tag) => (
-                  <span key={tag} className="text-xs bg-[#e5e7eb] text-[#2f2f2f] px-3 py-1 rounded-full border border-[#dfe3df]">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <a href={selectedProject.link} className="inline-flex items-center gap-2 bg-[#BAFF39] text-[#1f2937] px-6 py-2 rounded-lg hover:brightness-110 font-semibold">
-                Start a Conversation <ExternalLink size={16} />
-              </a>
             </div>
           </div>
         </div>

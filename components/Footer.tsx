@@ -1,83 +1,100 @@
+'use client'
+
 import React from 'react'
+import Link from 'next/link'
 import { Linkedin, Twitter, Facebook, Youtube, Mail, Phone, MapPin } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="mt-20 bg-[#4d4d4d] text-slate-200">
-      <div className="container mx-auto px-6 py-16">
-        <div className="mb-12 grid gap-8 md:grid-cols-4">
-          <div>
-            <div className="mb-4 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#BAFF39] font-bold text-[#1f2937]">ST</div>
-              <div>
-                <div className="font-semibold text-white"><span className="text-[#111827]">Saspal</span> <span className="text-[#BAFF39]">Technologies</span></div>
-                <div className="text-xs text-slate-200">Digital Engineering</div>
+    <footer className="bg-[#0f172a] text-slate-300 border-t-4 border-[#d7eb7a]">
+      <div className="container mx-auto px-4 md:px-6 py-16">
+        <div className="mb-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+          {/* Company Brand Column */}
+          <div className="lg:col-span-2">
+            <Link href="/" className="flex items-center gap-2.5 mb-4 group">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#d7eb7a] font-black text-[#1f2937]">
+                S
               </div>
+              <div className="text-2xl font-black text-white">
+                Saspal <span className="text-[#d7eb7a]">Technologies</span>
+              </div>
+            </Link>
+
+            <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
+              Saspal Technologies is a digital engineering and growth studio building scalable software platforms, SaaS products, microservices, and automation workflows for ambitious global teams.
+            </p>
+
+            <div className="mt-6 flex gap-3">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white transition hover:bg-[#d7eb7a] hover:text-[#1f2937]">
+                <Linkedin size={18} />
+              </a>
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white transition hover:bg-[#d7eb7a] hover:text-[#1f2937]">
+                <Twitter size={18} />
+              </a>
+              <a href="#" className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white transition hover:bg-[#d7eb7a] hover:text-[#1f2937]">
+                <Facebook size={18} />
+              </a>
+              <a href="#" className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white transition hover:bg-[#d7eb7a] hover:text-[#1f2937]">
+                <Youtube size={18} />
+              </a>
             </div>
-            <p className="text-sm text-slate-300">Digital engineering and growth studio building scalable platforms for ambitious teams worldwide.</p>
           </div>
 
+          {/* Capabilities */}
           <div>
-            <h4 className="mb-4 font-semibold text-white">Services</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#services" className="transition hover:text-white">SaaS Development</a></li>
-              <li><a href="#services" className="transition hover:text-white">Web Applications</a></li>
-              <li><a href="#services" className="transition hover:text-white">Mobile Apps</a></li>
-              <li><a href="#services" className="transition hover:text-white">E-Commerce</a></li>
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-wider text-[#d7eb7a]">Services</h4>
+            <ul className="space-y-2.5 text-sm">
+              <li><a href="#services" className="transition hover:text-white">Enterprise Software</a></li>
+              <li><a href="#services" className="transition hover:text-white">Microservices & APIs</a></li>
+              <li><a href="#services" className="transition hover:text-white">React & Node.js</a></li>
+              <li><a href="#services" className="transition hover:text-white">CI/CD & DevOps</a></li>
+              <li><a href="#services" className="transition hover:text-white">Aviation & Travel Tech</a></li>
+              <li><a href="#services" className="transition hover:text-[#d7eb7a]">AI-Assisted Dev</a></li>
             </ul>
           </div>
 
+          {/* Industries & Solutions */}
           <div>
-            <h4 className="mb-4 font-semibold text-white">Company</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#services" className="transition hover:text-white">What We Do</a></li>
-              <li><a href="#projects" className="transition hover:text-white">Case Studies</a></li>
-              <li><a href="#testimonials" className="transition hover:text-white">Client Feedback</a></li>
-              <li><a href="#contact" className="transition hover:text-white">Contact</a></li>
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-wider text-[#d7eb7a]">Industries</h4>
+            <ul className="space-y-2.5 text-sm">
+              <li><a href="#industries" className="transition hover:text-white">Aviation & Flight Booking</a></li>
+              <li><a href="#industries" className="transition hover:text-white">Travel & Hospitality</a></li>
+              <li><a href="#industries" className="transition hover:text-white">HR & Workforce</a></li>
+              <li><a href="#industries" className="transition hover:text-white">Education & Media</a></li>
+              <li><a href="#industries" className="transition hover:text-white">E-Commerce & Digital</a></li>
             </ul>
           </div>
 
+          {/* Contact Details */}
           <div>
-            <h4 className="mb-4 font-semibold text-white">Contact</h4>
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-wider text-[#d7eb7a]">Contact Dubai</h4>
             <div className="space-y-3 text-sm">
-              <div className="flex items-center gap-2">
-                <Phone size={16} className="text-[#BAFF39]" />
+              <div className="flex items-center gap-2.5">
+                <Phone size={16} className="text-[#d7eb7a] shrink-0" />
                 <a href="tel:+971502681703" className="transition hover:text-white">+971 50 2681703</a>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail size={16} className="text-[#BAFF39]" />
+              <div className="flex items-center gap-2.5">
+                <Mail size={16} className="text-[#d7eb7a] shrink-0" />
                 <a href="mailto:sasikumar7688@gmail.com" className="transition hover:text-white">sasikumar7688@gmail.com</a>
               </div>
-              <div className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 flex-shrink-0 text-[#BAFF39]" />
-                <span>Dubai, UAE</span>
+              <div className="flex items-start gap-2.5">
+                <MapPin size={16} className="mt-0.5 shrink-0 text-[#d7eb7a]" />
+                <span>Dubai, United Arab Emirates</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-slate-700 pt-8">
-          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <div className="text-sm text-slate-400">
-              © {currentYear} Saspal Technologies – Digital Engineering Studio. All rights reserved.
-            </div>
-
-            <div className="flex gap-4">
-              <a href="#" className="rounded-lg p-2 text-slate-400 transition hover:bg-[#3a3a3a] hover:text-[#BAFF39]">
-                <Linkedin size={18} />
-              </a>
-              <a href="#" className="rounded-lg p-2 text-slate-400 transition hover:bg-[#3a3a3a] hover:text-[#BAFF39]">
-                <Twitter size={18} />
-              </a>
-              <a href="#" className="rounded-lg p-2 text-slate-400 transition hover:bg-[#3a3a3a] hover:text-[#BAFF39]">
-                <Facebook size={18} />
-              </a>
-              <a href="#" className="rounded-lg p-2 text-slate-400 transition hover:bg-[#3a3a3a] hover:text-[#BAFF39]">
-                <Youtube size={18} />
-              </a>
-            </div>
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div>
+            © {currentYear} Saspal Technologies – Digital Engineering Studio. All rights reserved.
+          </div>
+          <div className="flex gap-6">
+            <a href="/contact" className="hover:text-white">Privacy Policy</a>
+            <a href="/contact" className="hover:text-white">Terms of Engagement</a>
+            <a href="/contact" className="hover:text-white">Sitemap</a>
           </div>
         </div>
       </div>
