@@ -1,11 +1,11 @@
 'use client'
 
 import React from 'react'
-import { ShieldCheck, Gauge, Lock, Cpu, Terminal, Award, ArrowUpRight } from 'lucide-react'
+import { ShieldCheck, Gauge, Lock, Cpu, Terminal, Award } from 'lucide-react'
 
 const pillars = [
   {
-    title: 'Architecture First',
+    title: 'AI Adoption',
     desc: 'Every engagement starts with clean, decoupled distributed systems design to eliminate technical debt and ensure future agility.',
     icon: ShieldCheck
   },
@@ -78,46 +78,9 @@ export default function WhyChooseUs() {
                 <p className="text-base leading-relaxed text-[#4b5563]">
                   {pillar.desc}
                 </p>
-
-                <div className="mt-6 pt-4 border-t border-[#dfe5d5] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#6b7280] group-hover:text-[#111827]">
-                  <span>Verified Standard</span>
-                  <ArrowUpRight size={16} className="text-[#9bbd2d]" />
-                </div>
               </div>
             )
           })}
-        </div>
-
-        {/* Large Highlight Callout Banner */}
-        <div className="rounded-[32px] border border-[#dfe6d4] bg-[radial-gradient(circle_at_top_left,_rgba(215,235,122,0.35),_transparent_50%),linear-gradient(135deg,#edf5d4_0%,#dfeeb1_40%,#d4e797_100%)] p-8 md:p-12 shadow-xl">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-            <div className="max-w-2xl">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#4e5d1d]">
-                Enterprise Partnership
-              </span>
-              <h3 className="mt-2 text-3xl font-black tracking-tight !text-[#111827] sm:text-5xl leading-tight">
-                Ready to build something scalable and bulletproof?
-              </h3>
-              <p className="mt-4 text-base !text-[#374151] sm:text-lg">
-                Talk directly with senior software architects in Dubai. We analyze your requirements, outline clear milestones, and execute with absolute quality.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-4 shrink-0">
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-[#0f172a] px-8 py-4 text-base font-bold text-white shadow-xl hover:bg-[#1f2937] hover:scale-105 transition duration-200"
-              >
-                Start a Conversation
-              </a>
-              <a
-                href="#projects"
-                className="inline-flex items-center justify-center rounded-full border border-[#0f172a]/20 bg-white/70 px-8 py-4 text-base font-bold !text-[#111827] hover:bg-white transition"
-              >
-                View Case Studies
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>

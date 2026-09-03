@@ -19,7 +19,7 @@ const statsData = [
   {
     number: 'Full Stack',
     label: 'Engineering Expertise',
-    subtext: 'React, Node.js, .NET, Microservices & Cloud Native',
+    subtext: 'React, Node.js, Java, Microservices & Cloud Native',
     icon: Code2
   },
   {

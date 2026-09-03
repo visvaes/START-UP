@@ -37,7 +37,7 @@ const heroSlides = [
   {
     id: 2,
     tag: 'AI-Powered Software & Automation',
-    badges: ['AI Engineering', 'Copilot Integration'],
+    badges: ['AI Integration'],
     title: 'Ship Autonomous Systems ',
     highlight: 'With AI At Scale.',
     desc: 'We design, build, and operate custom AI agents, automated workflows, and high-performance developer ecosystems that scale with security, grounding, and revenue outcomes.',
@@ -116,6 +116,7 @@ export default function Hero() {
   }
 
   return (
+    <>
     <VideoBackground
       localSrc={slide.videoSrc}
       fallbackSrc={slide.fallbackSrc}
@@ -124,60 +125,6 @@ export default function Hero() {
       heightClass="min-h-screen pt-24 pb-12"
     >
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        {/* Top Control Bar: Carousel Navigation Dots + Auto-play Toggle + Slide Indicator */}
-        <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-8 text-xs font-bold text-slate-300">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={prevSlide}
-              aria-label="Previous Hero Slide"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-[#d7eb7a] hover:text-[#0f172a]"
-            >
-              <ChevronLeft size={16} />
-            </button>
-            <button
-              onClick={() => setIsPlaying(!isPlaying)}
-              aria-label="Toggle Auto Carousel Playback"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-[#d7eb7a] hover:text-[#0f172a]"
-            >
-              {isPlaying ? <Pause size={14} /> : <Play size={14} className="ml-0.5" />}
-            </button>
-            <button
-              onClick={nextSlide}
-              aria-label="Next Hero Slide"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-[#d7eb7a] hover:text-[#0f172a]"
-            >
-              <ChevronRight size={16} />
-            </button>
-          </div>
-
-          {/* Progress Bar Indicators (SDLC Corp Reference Style) */}
-          <div className="hidden sm:flex items-center gap-4 flex-1 max-w-xl mx-8">
-            {heroSlides.map((s, idx) => (
-              <button
-                key={s.id}
-                onClick={() => setCurrentSlide(idx)}
-                className="relative flex-1 h-1.5 rounded-full bg-white/20 overflow-hidden transition-all"
-              >
-                <div
-                  className={`h-full rounded-full bg-[#d7eb7a] transition-all duration-300 ${
-                    idx === currentSlide
-                      ? isPlaying
-                        ? 'animate-progress-fill'
-                        : 'w-full'
-                      : idx < currentSlide
-                      ? 'w-full opacity-60'
-                      : 'w-0'
-                  }`}
-                />
-              </button>
-            ))}
-          </div>
-
-          <div className="text-slate-400 font-mono tracking-wider">
-            0{currentSlide + 1} / 0{heroSlides.length}
-          </div>
-        </div>
-
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
           {/* Left Main Hero Slide Content */}
           <div className="text-white animate-in fade-in duration-500">
@@ -192,7 +139,7 @@ export default function Hero() {
               ))}
             </div>
 
-            <h1 className="max-w-3xl text-4xl font-black leading-[0.98] tracking-[-0.05em] sm:text-6xl xl:text-7xl text-white">
+            <h1 className="max-w-3xl text-2xl font-black leading-[0.98] tracking-[-0.05em] sm:text-4xl xl:text-5xl text-white">
               {slide.title}
               <span className="text-[#d7eb7a]">{slide.highlight}</span>
             </h1>
@@ -200,34 +147,10 @@ export default function Hero() {
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg">
               {slide.desc}
             </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href={slide.ctaPrimaryLink}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d7eb7a] px-7 py-4 text-base font-bold text-[#000000] transition hover:scale-105"
-              >
-                {slide.ctaPrimary} <ChevronRight size={18} />
-              </a>
-              <a
-                href={slide.ctaSecondaryLink}
-                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 py-4 text-base font-bold text-white backdrop-blur-md transition hover:bg-white/20 hover:border-white/40"
-              >
-                {slide.ctaSecondary}
-              </a>
-            </div>
-
-            {/* Bottom Hero Slide Metrics Ticker Bar (SDLC Reference) */}
-            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-white/10 pt-8">
-              {slide.metrics.map((m, idx) => (
-                <div key={idx} className="border-l-2 border-[#d7eb7a] pl-3">
-                  <div className="text-2xl font-black text-white">{m.value}</div>
-                  <div className="text-xs uppercase tracking-wider text-slate-400 mt-0.5">{m.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Right Interactive Orbit Ring Visual (SDLC Corp Reference Graphic) */}
+          <div className="flex flex-col">
           <div className="relative flex items-center justify-center min-h-[380px] sm:min-h-[420px]">
             {/* Outer Orbit Rings */}
             <div className="absolute h-72 w-72 sm:h-96 sm:w-96 rounded-full border border-white/10 animate-spin" style={{ animationDuration: '30s' }} />
@@ -255,6 +178,32 @@ export default function Hero() {
               )
             })}
           </div>
+
+          {/* Slide Controls: parallel to the metrics row on the left */}
+          <div className="mt-10 flex items-center justify-center gap-2 border-t border-white/10 pt-8">
+            <button
+              onClick={prevSlide}
+              aria-label="Previous Hero Slide"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-[#d7eb7a] hover:text-[#0f172a]"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              onClick={() => setIsPlaying(!isPlaying)}
+              aria-label="Toggle Auto Carousel Playback"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-[#d7eb7a] hover:text-[#0f172a]"
+            >
+              {isPlaying ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
+            </button>
+            <button
+              onClick={nextSlide}
+              aria-label="Next Hero Slide"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-[#d7eb7a] hover:text-[#0f172a]"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </div>
         </div>
 
         {/* Subtle Scroll Indicator */}
@@ -266,6 +215,6 @@ export default function Hero() {
         </div>
       </div>
     </VideoBackground>
+    </>
   )
 }
-

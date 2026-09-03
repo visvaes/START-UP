@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { ArrowUpRight, ChevronDown, CheckCircle2 } from 'lucide-react'
+import { ChevronDown, CheckCircle2 } from 'lucide-react'
 
 const services = [
   {
@@ -14,11 +14,11 @@ const services = [
   },
   {
     num: '02',
-    id: 'microservices',
-    title: 'Microservices & APIs',
-    desc: 'Designing modular, distributed systems with REST/JSON services, secure integrations, and scalable service boundaries for enterprise-grade platforms.',
-    tags: ['REST/JSON', 'API Gateways', 'Distributed Systems'],
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80'
+    id: 'ai',
+    title: 'AI-Assisted Engineering',
+    desc: 'Using GitHub Copilot, ChatGPT, and AI-enabled review and automation workflows to improve productivity, code quality, and delivery speed.',
+    tags: ['GitHub Copilot', 'AI Workflows', 'Automated QA'],
+    image: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=900&q=80'
   },
   {
     num: '03',
@@ -54,11 +54,11 @@ const services = [
   },
   {
     num: '07',
-    id: 'ai',
-    title: 'AI-Assisted Engineering',
-    desc: 'Using GitHub Copilot, ChatGPT, and AI-enabled review and automation workflows to improve productivity, code quality, and delivery speed.',
-    tags: ['GitHub Copilot', 'AI Workflows', 'Automated QA'],
-    image: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=900&q=80'
+    id: 'microservices',
+    title: 'Microservices & APIs',
+    desc: 'Designing modular, distributed systems with REST/JSON services, secure integrations, and scalable service boundaries for enterprise-grade platforms.',
+    tags: ['REST/JSON', 'API Gateways', 'Distributed Systems'],
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80'
   },
   {
     num: '08',
@@ -102,13 +102,6 @@ export default function Services(){
               From microservices to flight booking platforms, explore our enterprise software engineering services built for performance and growth.
             </p>
           </div>
-
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2 self-start rounded-full bg-[#d7eb7a] px-6 py-3.5 text-sm font-bold text-[#1f2937] shadow-lg shadow-[#d7eb7a]/30 transition hover:brightness-105"
-          >
-            Discuss A Capability <ArrowUpRight size={17} />
-          </a>
         </div>
 
         {/* Desktop Interactive Layout (Side by Side hover list + visual preview) */}
@@ -133,12 +126,6 @@ export default function Services(){
                     <h3 className="text-xl font-bold tracking-tight text-[#111827]">
                       {s.title}
                     </h3>
-                  </div>
-
-                  <div className={`flex h-9 w-9 items-center justify-center rounded-full transition ${
-                    activeService === idx ? 'bg-[#d7eb7a] text-[#1f2937]' : 'bg-[#edf4d3] text-[#4e5d1d]'
-                  }`}>
-                    <ArrowUpRight size={18} />
                   </div>
                 </div>
 

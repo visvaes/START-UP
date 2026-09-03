@@ -29,28 +29,12 @@ const industryCards = [
     glowShadow: 'rgba(16, 185, 129, 0.4)'
   },
   {
-    id: 4,
-    stat: '30+',
-    title: 'Global Platforms',
-    subtitle: 'Dubai UAE, US & International Enterprise Clients',
-    glowColor: 'from-[#f59e0b] to-[#fbbf24]',
-    glowShadow: 'rgba(245, 158, 11, 0.4)'
-  },
-  {
     id: 5,
     stat: '50+',
     title: 'Microservices Built',
     subtitle: 'High-availability REST & Distributed Architectures',
     glowColor: 'from-[#a855f7] to-[#c084fc]',
     glowShadow: 'rgba(168, 85, 247, 0.4)'
-  },
-  {
-    id: 6,
-    stat: '8+',
-    title: 'Engineering Teams Led',
-    subtitle: 'Sprint planning, DevOps automation & production SLAs',
-    glowColor: 'from-[#ec4899] to-[#f472b6]',
-    glowShadow: 'rgba(236, 72, 153, 0.4)'
   }
 ]
 
@@ -192,7 +176,7 @@ export default function Industries() {
           >
             {industryCards.map((card, index) => {
               const angle = (360 / industryCards.length) * index
-              const radius = 340
+              const radius = 220
 
               return (
                 <div
