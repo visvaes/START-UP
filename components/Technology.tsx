@@ -125,22 +125,28 @@ export default function Technology() {
             </div>
           </div>
 
-          {/* Technology Badges Grid */}
-          <div className="rounded-[28px] border border-white/15 bg-white/5 p-8 backdrop-blur-md">
+          {/* Technology Badges Marquee Carousel */}
+          <div className="rounded-[28px] border border-white/15 bg-white/5 p-8 backdrop-blur-md overflow-hidden">
             <h3 className="text-center text-xl font-black text-white uppercase tracking-wider mb-8">
               Verified Enterprise Tech Stack Badges
             </h3>
 
-            <div className="flex flex-wrap justify-center gap-3">
-              {techBadges.map((badge) => (
-                <div
-                  key={badge.name}
-                  className="group flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-bold text-white transition hover:border-[#d7eb7a] hover:bg-[#d7eb7a] hover:text-[#1f2937]"
-                >
-                  <CheckCircle2 size={16} className="text-[#d7eb7a] group-hover:text-[#1f2937] transition-colors" />
-                  <span>{badge.name}</span>
-                </div>
-              ))}
+            <div className="relative w-full overflow-hidden mask-gradient">
+              {/* Left and Right Fade Gradients */}
+              <div className="absolute top-0 bottom-0 left-0 w-16 bg-gradient-to-r from-[#0f172a] to-transparent z-10 pointer-events-none" />
+              <div className="absolute top-0 bottom-0 right-0 w-16 bg-gradient-to-l from-[#0f172a] to-transparent z-10 pointer-events-none" />
+
+              <div className="flex w-max animate-marquee gap-3 py-2">
+                {[...techBadges, ...techBadges].map((badge, idx) => (
+                  <div
+                    key={`${badge.name}-${idx}`}
+                    className="group flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-bold text-white transition hover:border-[#d7eb7a] hover:bg-[#d7eb7a] hover:text-[#1f2937] shrink-0"
+                  >
+                    <CheckCircle2 size={16} className="text-[#d7eb7a] group-hover:text-[#1f2937] transition-colors" />
+                    <span>{badge.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

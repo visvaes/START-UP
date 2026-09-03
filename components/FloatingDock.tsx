@@ -5,9 +5,8 @@ import { Moon, Sun, Calendar, Mail, Phone } from 'lucide-react'
 
 function WhatsAppIcon({ className = 'w-5 h-5' }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-      <path d="M16 12.5c-.3.4-.9.7-1.3.7-.4 0-1.1-.3-2.1-1.3s-1.3-1.7-1.3-2.1c0-.4.3-1 .7-1.3.2-.2.4-.2.5 0l1 1.5c.1.2.1.4 0 .6l-.4.5c-.1.1-.2.3 0 .5.3.5.8 1.1 1.4 1.7.6.6 1.2 1.1 1.7 1.4.2.2.4.1.5 0l.5-.4c.2-.1.4-.1.6 0l1.5 1c.2.1.2.3 0 .5z" />
+    <svg className={className} viewBox="0 0 32 32" fill="currentColor">
+      <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.386.632 4.63 1.842 6.573L3.5 29l7.62-2.29A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.75a9.7 9.7 0 0 1-4.95-1.354l-.355-.21-4.522 1.36 1.377-4.41-.232-.365A9.71 9.71 0 0 1 5.75 15c0-5.66 4.596-10.25 10.254-10.25 5.657 0 10.246 4.59 10.246 10.25 0 5.66-4.589 10.25-10.246 10.25zm5.63-7.68c-.31-.155-1.828-.902-2.111-1.005-.283-.104-.489-.155-.696.155-.207.31-.797 1.005-.977 1.211-.18.207-.36.233-.67.078-.31-.155-1.307-.482-2.49-1.535-.92-.82-1.542-1.833-1.723-2.143-.18-.31-.02-.478.136-.632.14-.14.31-.362.465-.543.155-.18.207-.31.31-.517.103-.207.052-.388-.026-.543-.078-.155-.696-1.677-.954-2.297-.251-.604-.507-.522-.696-.531l-.593-.01c-.207 0-.543.078-.827.388-.283.31-1.084 1.06-1.084 2.582 0 1.522 1.11 2.994 1.264 3.2.155.207 2.185 3.337 5.293 4.68.74.32 1.317.512 1.767.655.742.236 1.417.203 1.951.123.595-.089 1.828-.747 2.086-1.469.258-.723.258-1.343.18-1.469-.077-.129-.284-.207-.593-.362z"/>
     </svg>
   )
 }
@@ -17,18 +16,25 @@ export default function FloatingDock() {
   const [activeTooltip, setActiveTooltip] = useState<string | null>(null)
 
   useEffect(() => {
-    // Check initial dark mode state
-    if (document.documentElement.classList.contains('dark')) {
+    // Check initial dark mode state from document or localStorage
+    const savedTheme = localStorage.getItem('theme')
+    if (savedTheme === 'dark' || document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.add('dark')
       setIsDark(true)
+    } else {
+      document.documentElement.classList.remove('dark')
+      setIsDark(false)
     }
   }, [])
 
   const toggleTheme = () => {
     if (isDark) {
       document.documentElement.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
       setIsDark(false)
     } else {
       document.documentElement.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
       setIsDark(true)
     }
   }
@@ -57,7 +63,7 @@ export default function FloatingDock() {
       href: 'https://wa.me/971502681703?text=Hi%20Saspal%20Technologies,%20I%20would%20like%20to%20discuss%20a%20project.',
       target: '_blank',
       rel: 'noopener noreferrer',
-      highlight: true
+      highlight: false
     },
     {
       id: 'calendar',
@@ -84,7 +90,7 @@ export default function FloatingDock() {
 
   return (
     <aside aria-label="Quick contact actions" className="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-3">
-      {items.map((item) => {
+      {items.map((item, index) => {
         const content = (
           <div className="relative group flex items-center justify-center">
             {/* Tooltip */}
@@ -98,9 +104,12 @@ export default function FloatingDock() {
 
             {/* Button */}
             <div
-              className={`relative flex h-11 w-11 items-center justify-center rounded-full bg-[#18181b]/85 backdrop-blur-md border border-white/15 text-white shadow-lg transition-all duration-300 hover:scale-110 hover:border-[#d7eb7a] hover:bg-[#18181b] ${
-                item.highlight ? 'ring-2 ring-white/20 ring-offset-2 ring-offset-transparent' : ''
-              }`}
+              className={`relative flex h-11 w-11 items-center justify-center rounded-full backdrop-blur-md border border-white/15 text-white shadow-lg transition-all duration-300 hover:scale-110 animate-dock-float ${
+                item.id === 'whatsapp'
+                  ? 'bg-[#25D366] border-[#25D366]/40 hover:bg-[#1ebe5b] animate-dock-pulse'
+                  : 'bg-[#18181b]/85 hover:border-[#d7eb7a] hover:bg-[#18181b]'
+              } ${item.highlight ? 'ring-2 ring-white/20 ring-offset-2 ring-offset-transparent' : ''}`}
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
               {item.icon}
             </div>

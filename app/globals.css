@@ -16,10 +16,20 @@ html{scroll-behavior:smooth;}
   --muted:#6b7280;
 }
 
+html.dark {
+  --bg: #0b1329;
+  --card: #152035;
+  --panel: #1e293b;
+  --line: rgba(255, 255, 255, 0.12);
+  --primary: #94a3b8;
+  --primary-dark: #f8fafc;
+  --muted: #94a3b8;
+}
+
 html,body,#root{height:100%;}
 
 body{
-  @apply bg-[var(--bg)] antialiased;
+  @apply bg-[var(--bg)] antialiased transition-colors duration-300;
   background-color: var(--bg);
   color: var(--primary-dark);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -29,16 +39,123 @@ h1, h2, h3, h4, h5, h6, p, li, span, a, button {
   color: inherit;
 }
 
-.text-slate-900 { color: var(--primary-dark) !important; }
-.text-slate-700 { color: rgba(77, 77, 77, 0.9) !important; }
+/* Dark Mode Overrides */
+html.dark body {
+  background-color: #0b1329 !important;
+  color: #f8fafc !important;
+}
+
+html.dark .bg-\[\#f3f4ee\] {
+  background-color: #0b1329 !important;
+}
+
+html.dark .bg-\[\#f8f9f5\],
+html.dark .bg-white {
+  background-color: #152035 !important;
+  color: #f8fafc !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.dark .text-\[\#111827\],
+html.dark .text-\[\#1f2937\] {
+  color: #f8fafc !important;
+}
+
+html.dark .text-\[\#4b5563\],
+html.dark .text-slate-600,
+html.dark .text-[#374151] {
+  color: #cbd5e1 !important;
+}
+
+html.dark .border-\[\#dfe6d4\],
+html.dark .border-\[\#dfe5d5\] {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.dark .bg-\[\#edf4d3\] {
+  background-color: rgba(215, 235, 122, 0.15) !important;
+  color: #d7eb7a !important;
+}
+
+html.dark .text-\[\#4e5d1d\] {
+  color: #d7eb7a !important;
+}
+
+/* Live Card Animations */
+.live-card {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.live-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px -15px rgba(155, 189, 45, 0.25);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes progressMove {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.animate-progress-fill {
+  animation: progressMove 7s linear infinite;
+}
+
+@keyframes dockFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-dock-float {
+  animation: dockFloat 3s ease-in-out infinite;
+}
+
+@keyframes dockPulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); }
+  70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.animate-dock-pulse {
+  animation: dockPulseRing 2.2s ease-out infinite;
+}
 
 .hero-bg{background: linear-gradient(135deg, rgba(110,110,110,0.08) 0%, rgba(207,231,109,0.15) 100%); border-bottom: 1px solid rgba(110,110,110,0.1);} 
 
 .card-rounded{ @apply rounded-lg shadow-sm p-6 border; background-color: var(--card); border-color: var(--line); }
 
-.btn-primary{ @apply inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#d7eb7a] text-[#1f2937] font-semibold transition-all duration-200 ease-out hover:brightness-105 }
+.btn-primary{ @apply inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#d7eb7a] text-[#000000] font-semibold transition-all duration-200 ease-out; }
 
-.btn-outline{ @apply inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-[#c7d7a9] bg-white/60 text-[#1f2937] font-semibold transition-all duration-200 ease-out hover:bg-[#ddec79] hover:text-[#1f2937] hover:border-[#ddec79] }
+.btn-outline{ @apply inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-[#c7d7a9] bg-white/60 text-[#000000] font-semibold transition-all duration-200 ease-out hover:bg-[#ddec79] hover:text-[#000000] hover:border-[#ddec79]; }
+
+/* Force button text color to black in both light & dark mode for all primary/action buttons */
+button, 
+a button, 
+.btn-primary, 
+.btn-action-black {
+  color: #000000 !important;
+}
+
+html.dark button,
+html.dark a button,
+html.dark .btn-primary,
+html.dark .btn-action-black {
+  color: #000000 !important;
+}
 
 .nav-link {
   color: rgba(31, 41, 55, 0.9);

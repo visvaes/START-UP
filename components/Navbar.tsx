@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X, ChevronDown, Cpu, Layers, Smartphone, Globe, Terminal, Cloud, Sparkles, Server } from 'lucide-react'
+import BrandLogo from './BrandLogo'
 
 function BuildingIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -65,13 +66,8 @@ export default function Navbar(){
     >
       <nav className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#d7eb7a] font-black text-[#1f2937] shadow-lg shadow-[#d7eb7a]/20 group-hover:scale-105 transition-transform">
-            S
-          </div>
-          <div className="text-xl md:text-2xl font-black tracking-tight text-white">
-            Saspal <span className="text-[#d7eb7a]">Technologies</span>
-          </div>
+        <Link href="/">
+          <BrandLogo className="h-12 w-12 md:h-14 md:w-14" showText textColor="text-white" />
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -162,7 +158,7 @@ export default function Navbar(){
         <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-[#d7eb7a] px-5 py-2.5 text-sm font-bold text-[#1f2937] shadow-[0_10px_25px_rgba(215,235,122,0.3)] hover:brightness-110 hover:scale-105 transition duration-200"
+            className="inline-flex items-center justify-center rounded-full bg-[#d7eb7a] px-5 py-2.5 text-sm font-bold text-[#000000] hover:brightness-110 hover:scale-105 transition duration-200"
           >
             Book Consultation →
           </Link>

@@ -53,7 +53,7 @@ export default function Testimonials(){
             return (
               <div
                 key={idx}
-                className="group rounded-[28px] border border-[#dfe6d4] bg-[#f8f9f5] p-8 shadow-sm transition-all duration-300 hover:border-[#bfd85d] hover:bg-white hover:shadow-xl hover:-translate-y-1"
+                className="group live-card rounded-[28px] border border-[#dfe6d4] bg-[#f8f9f5] p-8 shadow-sm hover:border-[#bfd85d] hover:bg-white"
               >
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#d7eb7a] text-[#1f2937] shadow-md">

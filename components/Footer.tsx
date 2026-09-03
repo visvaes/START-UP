@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import BrandLogo from './BrandLogo'
 import { Linkedin, Twitter, Facebook, Youtube, Mail, Phone, MapPin } from 'lucide-react'
 
 export default function Footer() {
@@ -13,13 +14,8 @@ export default function Footer() {
         <div className="mb-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           {/* Company Brand Column */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2.5 mb-4 group">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#d7eb7a] font-black text-[#1f2937]">
-                S
-              </div>
-              <div className="text-2xl font-black text-white">
-                Saspal <span className="text-[#d7eb7a]">Technologies</span>
-              </div>
+            <Link href="/" className="mb-4 inline-block">
+              <BrandLogo className="h-12 w-12 md:h-14 md:w-14" showText textColor="text-white" />
             </Link>
 
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm">

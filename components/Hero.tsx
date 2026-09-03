@@ -1,102 +1,264 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import VideoBackground from './VideoBackground'
-import { ArrowDown, ChevronRight, CheckCircle2, ShieldCheck, Zap } from 'lucide-react'
+import BrandLogo from './BrandLogo'
+import { ArrowDown, ChevronRight, ChevronLeft, ShieldCheck, Zap, CheckCircle2, Play, Pause, ShoppingBag, PhoneCall, TrendingUp, Cpu } from 'lucide-react'
+
+const heroSlides = [
+  {
+    id: 1,
+    tag: 'Saspal Technologies • Digital Engineering Studio',
+    badges: ['Enterprise Software', 'Product Engineering'],
+    title: 'We build the digital systems ',
+    highlight: 'businesses trust to grow.',
+    desc: 'Saspal Technologies helps startups and enterprise teams design and deliver scalable SaaS platforms, web products, automation workflows, and modern digital experiences with measurable business impact.',
+    ctaPrimary: 'Explore Services',
+    ctaPrimaryLink: '#services',
+    ctaSecondary: 'Book a Consultation',
+    ctaSecondaryLink: '/contact',
+    videoSrc: '/videos/hero.mp4',
+    fallbackSrc: 'https://assets.mixkit.co/videos/preview/mixkit-code-running-on-a-computer-screen-41551-large.mp4',
+    poster: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80',
+    orbitTitle: 'PRODUCT ENGINEERING',
+    orbitNodes: [
+      { name: 'Commerce', icon: ShoppingBag, color: 'bg-sky-500/20 text-sky-400 border-sky-400/40', pos: 'top-2 right-4' },
+      { name: 'Ops', icon: Cpu, color: 'bg-emerald-500/20 text-emerald-400 border-emerald-400/40', pos: 'top-10 left-4' },
+      { name: 'Service', icon: PhoneCall, color: 'bg-amber-500/20 text-amber-400 border-amber-400/40', pos: 'top-1/2 -right-4' },
+      { name: 'Sales', icon: TrendingUp, color: 'bg-purple-500/20 text-purple-400 border-purple-400/40', pos: 'bottom-4 right-10' }
+    ],
+    metrics: [
+      { value: '14+', label: 'Years Delivery' },
+      { value: '100%', label: 'On-Time SLA' },
+      { value: '3x', label: 'Productivity' },
+      { value: '99.9%', label: 'Uptime' }
+    ]
+  },
+  {
+    id: 2,
+    tag: 'AI-Powered Software & Automation',
+    badges: ['AI Engineering', 'Copilot Integration'],
+    title: 'Ship Autonomous Systems ',
+    highlight: 'With AI At Scale.',
+    desc: 'We design, build, and operate custom AI agents, automated workflows, and high-performance developer ecosystems that scale with security, grounding, and revenue outcomes.',
+    ctaPrimary: 'Deploy AI Workflows →',
+    ctaPrimaryLink: '/contact',
+    ctaSecondary: 'Explore Use Cases',
+    ctaSecondaryLink: '#technology',
+    videoSrc: '/videos/technology.mp4',
+    fallbackSrc: 'https://assets.mixkit.co/videos/preview/mixkit-[#061a2d]-digital-network-lines-41552-large.mp4',
+    poster: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1920&q=80',
+    orbitTitle: 'AI AUTOMATION HUB',
+    orbitNodes: [
+      { name: 'Agents', icon: Cpu, color: 'bg-[#d7eb7a]/20 text-[#d7eb7a] border-[#d7eb7a]/40', pos: 'top-4 right-2' },
+      { name: 'Workflows', icon: Zap, color: 'bg-[#0ea5e9]/20 text-[#0ea5e9] border-[#0ea5e9]/40', pos: 'top-12 left-2' },
+      { name: 'Data Pipeline', icon: ShieldCheck, color: 'bg-purple-500/20 text-purple-400 border-purple-400/40', pos: 'top-1/2 -right-6' },
+      { name: 'Monitoring', icon: CheckCircle2, color: 'bg-emerald-500/20 text-emerald-400 border-emerald-400/40', pos: 'bottom-2 right-8' }
+    ],
+    metrics: [
+      { value: '50+', label: 'AI Workflows' },
+      { value: '45%', label: 'Cost Reduction' },
+      { value: '4x', label: 'Speed To Market' },
+      { value: '98%', label: 'Accuracy Rate' }
+    ]
+  },
+  {
+    id: 3,
+    tag: 'Cloud-Native & Distributed Microservices',
+    badges: ['Azure & AWS', 'Microservices Architecture'],
+    title: 'Modernize Platform Systems ',
+    highlight: 'For Zero Downtime.',
+    desc: 'Transform legacy web applications into decoupled, cloud-native microservices backed by automated CI/CD release pipelines and 24/7 enterprise production support.',
+    ctaPrimary: 'Request Architecture Blueprint',
+    ctaPrimaryLink: '/contact',
+    ctaSecondary: 'View Case Studies',
+    ctaSecondaryLink: '#projects',
+    videoSrc: '/videos/engineering.mp4',
+    fallbackSrc: 'https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-man-typing-on-a-keyboard-41553-large.mp4',
+    poster: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80',
+    orbitTitle: 'CLOUD & MICROSERVICES',
+    orbitNodes: [
+      { name: 'Kubernetes', icon: Cpu, color: 'bg-blue-500/20 text-blue-400 border-blue-400/40', pos: 'top-2 right-6' },
+      { name: 'CI/CD Pipelines', icon: Zap, color: 'bg-[#d7eb7a]/20 text-[#d7eb7a] border-[#d7eb7a]/40', pos: 'top-14 left-0' },
+      { name: 'Security Audit', icon: ShieldCheck, color: 'bg-red-500/20 text-red-400 border-red-400/40', pos: 'top-1/2 -right-4' },
+      { name: 'API Gateway', icon: CheckCircle2, color: 'bg-emerald-500/20 text-emerald-400 border-emerald-400/40', pos: 'bottom-4 right-6' }
+    ],
+    metrics: [
+      { value: '200+', label: 'Global Systems' },
+      { value: '0', label: 'Unplanned Downtime' },
+      { value: '100%', label: 'OWASP Compliant' },
+      { value: '24/7', label: 'Support SLA' }
+    ]
+  }
+]
 
 export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(true)
+
+  useEffect(() => {
+    if (!isPlaying) return
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
+    }, 7000)
+
+    return () => clearInterval(timer)
+  }, [isPlaying])
+
+  const slide = heroSlides[currentSlide]
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
+  }
+
   return (
     <VideoBackground
-      localSrc="/videos/hero.mp4"
-      fallbackSrc="https://assets.mixkit.co/videos/preview/mixkit-code-running-on-a-computer-screen-41551-large.mp4"
-      poster="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80"
-      overlayClass="bg-gradient-to-r from-[#0f172a]/90 via-[#0f172a]/80 to-[#0f172a]/70"
-      heightClass="min-h-screen pt-28 pb-16"
+      localSrc={slide.videoSrc}
+      fallbackSrc={slide.fallbackSrc}
+      poster={slide.poster}
+      overlayClass="bg-gradient-to-r from-[#080d1a]/95 via-[#080d1a]/85 to-[#080d1a]/75"
+      heightClass="min-h-screen pt-24 pb-12"
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        {/* Top Control Bar: Carousel Navigation Dots + Auto-play Toggle + Slide Indicator */}
+        <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-8 text-xs font-bold text-slate-300">
+          <div className="flex items-center gap-3">
+            <button
+              onClick={prevSlide}
+              aria-label="Previous Hero Slide"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-[#d7eb7a] hover:text-[#0f172a]"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <button
+              onClick={() => setIsPlaying(!isPlaying)}
+              aria-label="Toggle Auto Carousel Playback"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-[#d7eb7a] hover:text-[#0f172a]"
+            >
+              {isPlaying ? <Pause size={14} /> : <Play size={14} className="ml-0.5" />}
+            </button>
+            <button
+              onClick={nextSlide}
+              aria-label="Next Hero Slide"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-[#d7eb7a] hover:text-[#0f172a]"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
+
+          {/* Progress Bar Indicators (SDLC Corp Reference Style) */}
+          <div className="hidden sm:flex items-center gap-4 flex-1 max-w-xl mx-8">
+            {heroSlides.map((s, idx) => (
+              <button
+                key={s.id}
+                onClick={() => setCurrentSlide(idx)}
+                className="relative flex-1 h-1.5 rounded-full bg-white/20 overflow-hidden transition-all"
+              >
+                <div
+                  className={`h-full rounded-full bg-[#d7eb7a] transition-all duration-300 ${
+                    idx === currentSlide
+                      ? isPlaying
+                        ? 'animate-progress-fill'
+                        : 'w-full'
+                      : idx < currentSlide
+                      ? 'w-full opacity-60'
+                      : 'w-0'
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+
+          <div className="text-slate-400 font-mono tracking-wider">
+            0{currentSlide + 1} / 0{heroSlides.length}
+          </div>
+        </div>
+
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-          {/* Left Hero Main Text Content */}
-          <div className="text-white">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#d7eb7a]/40 bg-[#d7eb7a]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#d7eb7a] backdrop-blur-md">
-              <span className="flex h-2 w-2 rounded-full bg-[#d7eb7a] animate-ping" />
-              Saspal Technologies • Digital Engineering Studio
+          {/* Left Main Hero Slide Content */}
+          <div className="text-white animate-in fade-in duration-500">
+            <div className="flex flex-wrap items-center gap-2 mb-4">
+              {slide.badges.map((b) => (
+                <span
+                  key={b}
+                  className="inline-flex items-center rounded-full border border-[#d7eb7a]/40 bg-[#d7eb7a]/15 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#d7eb7a] backdrop-blur-md"
+                >
+                  {b}
+                </span>
+              ))}
             </div>
 
-            <h1 className="mt-6 max-w-3xl text-4xl font-black leading-[0.98] tracking-[-0.05em] sm:text-6xl xl:text-7xl text-white">
-              We build the digital systems <span className="text-[#d7eb7a]">businesses trust to grow.</span>
+            <h1 className="max-w-3xl text-4xl font-black leading-[0.98] tracking-[-0.05em] sm:text-6xl xl:text-7xl text-white">
+              {slide.title}
+              <span className="text-[#d7eb7a]">{slide.highlight}</span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg">
-              Saspal Technologies helps startups and enterprise teams design and deliver scalable SaaS platforms, web products, automation workflows, and modern digital experiences with measurable business impact.
+              {slide.desc}
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
-                href="#services"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d7eb7a] px-7 py-4 text-base font-bold text-[#1f2937] shadow-[0_12px_30px_rgba(215,235,122,0.3)] transition hover:brightness-110 hover:scale-105"
+                href={slide.ctaPrimaryLink}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d7eb7a] px-7 py-4 text-base font-bold text-[#000000] transition hover:scale-105"
               >
-                Explore Services <ChevronRight size={18} />
+                {slide.ctaPrimary} <ChevronRight size={18} />
               </a>
               <a
-                href="/contact"
+                href={slide.ctaSecondaryLink}
                 className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 py-4 text-base font-bold text-white backdrop-blur-md transition hover:bg-white/20 hover:border-white/40"
               >
-                Book a Consultation
+                {slide.ctaSecondary}
               </a>
             </div>
 
-            {/* Quick Hero Features */}
-            <div className="mt-10 flex flex-wrap gap-6 border-t border-white/10 pt-8 text-sm text-slate-300">
-              <div className="flex items-center gap-2">
-                <ShieldCheck size={18} className="text-[#d7eb7a]" />
-                <span>Enterprise Architecture</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Zap size={18} className="text-[#d7eb7a]" />
-                <span>High Performance Delivery</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 size={18} className="text-[#d7eb7a]" />
-                <span>UAE & Global Footprint</span>
-              </div>
+            {/* Bottom Hero Slide Metrics Ticker Bar (SDLC Reference) */}
+            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-white/10 pt-8">
+              {slide.metrics.map((m, idx) => (
+                <div key={idx} className="border-l-2 border-[#d7eb7a] pl-3">
+                  <div className="text-2xl font-black text-white">{m.value}</div>
+                  <div className="text-xs uppercase tracking-wider text-slate-400 mt-0.5">{m.label}</div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right Hero Product Engineering Feature Panel */}
-          <div className="rounded-[30px] border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
-            <div className="rounded-[24px] bg-[#0f172a]/90 p-6 border border-white/10">
-              <div className="flex items-center justify-between border-b border-white/10 pb-5">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#d7eb7a]">Delivery Model</p>
-                  <h2 className="mt-1 text-2xl font-black text-white">Product Engineering</h2>
-                </div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#d7eb7a] text-[#1f2937] font-black text-xl shadow-lg shadow-[#d7eb7a]/20">
-                  S
-                </div>
-              </div>
+          {/* Right Interactive Orbit Ring Visual (SDLC Corp Reference Graphic) */}
+          <div className="relative flex items-center justify-center min-h-[380px] sm:min-h-[420px]">
+            {/* Outer Orbit Rings */}
+            <div className="absolute h-72 w-72 sm:h-96 sm:w-96 rounded-full border border-white/10 animate-spin" style={{ animationDuration: '30s' }} />
+            <div className="absolute h-52 w-52 sm:h-72 sm:w-72 rounded-full border border-dashed border-[#d7eb7a]/20 animate-spin" style={{ animationDuration: '20s', animationDirection: 'reverse' }} />
 
-              <div className="mt-6 space-y-3.5">
-                {[
-                  { title: 'Architecture-First Strategy', detail: 'Clean distributed systems design' },
-                  { title: 'Secure, Scalable Delivery', detail: 'PCI-DSS & OWASP compliant code' },
-                  { title: 'DevOps & Automation', detail: 'CI/CD pipelines & automated tests' },
-                  { title: 'Modern Product Execution', detail: 'React, .NET, Node.js & Cloud' }
-                ].map((item) => (
-                  <div key={item.title} className="flex items-start gap-3.5 rounded-2xl border border-white/10 bg-white/5 p-3.5 text-sm transition hover:bg-white/10">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#d7eb7a] text-[#1f2937] text-xs font-black mt-0.5">✓</span>
-                    <div>
-                      <div className="font-bold text-white">{item.title}</div>
-                      <div className="text-xs text-slate-300 mt-0.5">{item.detail}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            {/* Center Core Hub */}
+            <div className="relative z-10 flex h-24 w-24 sm:h-28 sm:w-28 flex-col items-center justify-center rounded-full bg-[#0a222b] border-2 border-[#d7eb7a]">
+              <BrandLogo className="h-10 w-10" />
+              <span className="mt-1 text-[10px] font-black uppercase tracking-widest text-[#d7eb7a]">
+                SASPAL
+              </span>
             </div>
+
+            {/* Orbiting Satellite Tech Chips */}
+            {slide.orbitNodes.map((node, idx) => {
+              const Icon = node.icon
+              return (
+                <div
+                  key={idx}
+                  className={`absolute z-20 flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-bold shadow-xl backdrop-blur-md transition-all duration-500 hover:scale-110 ${node.color} ${node.pos}`}
+                >
+                  <Icon size={16} />
+                  <span>{node.name}</span>
+                </div>
+              )
+            })}
           </div>
         </div>
 
-        {/* Subtle Animated Scroll Indicator */}
-        <div className="mt-16 flex flex-col items-center justify-center">
+        {/* Subtle Scroll Indicator */}
+        <div className="mt-8 flex flex-col items-center justify-center">
           <a href="#stats" className="flex flex-col items-center text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-[#d7eb7a] transition group">
             <span>Scroll To Discover</span>
             <ArrowDown size={16} className="mt-2 text-[#d7eb7a] animate-bounce" />

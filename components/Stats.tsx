@@ -40,7 +40,7 @@ export default function Stats() {
             return (
               <div
                 key={idx}
-                className="group relative overflow-hidden rounded-[24px] border border-[#dfe6d4] bg-[#f8f9f5] p-6 shadow-[0_10px_30px_rgba(17,24,39,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#bfd85d] hover:shadow-xl"
+                className="group live-card relative overflow-hidden rounded-[24px] border border-[#dfe6d4] bg-[#f8f9f5] p-6 shadow-[0_10px_30px_rgba(17,24,39,0.05)] hover:border-[#bfd85d]"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-4xl font-black tracking-tight text-[#111827] group-hover:text-[#9bbd2d] transition-colors">

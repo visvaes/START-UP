@@ -60,7 +60,7 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={idx}
-                className="group relative rounded-[28px] border border-[#dfe6d4] bg-[#f8f9f5] p-8 shadow-[0_10px_30px_rgba(17,24,39,0.04)] transition-all duration-300 hover:-translate-y-2 hover:border-[#bfd85d] hover:bg-white hover:shadow-xl"
+                className="group live-card relative rounded-[28px] border border-[#dfe6d4] bg-[#f8f9f5] p-8 shadow-[0_10px_30px_rgba(17,24,39,0.04)] hover:border-[#bfd85d] hover:bg-white"
               >
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#d7eb7a] text-[#1f2937] shadow-lg shadow-[#d7eb7a]/30 group-hover:scale-110 transition-transform">
@@ -95,10 +95,10 @@ export default function WhyChooseUs() {
               <span className="text-xs font-bold uppercase tracking-widest text-[#4e5d1d]">
                 Enterprise Partnership
               </span>
-              <h3 className="mt-2 text-3xl font-black tracking-tight text-[#111827] sm:text-5xl leading-tight">
+              <h3 className="mt-2 text-3xl font-black tracking-tight !text-[#111827] sm:text-5xl leading-tight">
                 Ready to build something scalable and bulletproof?
               </h3>
-              <p className="mt-4 text-base text-[#374151] sm:text-lg">
+              <p className="mt-4 text-base !text-[#374151] sm:text-lg">
                 Talk directly with senior software architects in Dubai. We analyze your requirements, outline clear milestones, and execute with absolute quality.
               </p>
             </div>
@@ -112,7 +112,7 @@ export default function WhyChooseUs() {
               </a>
               <a
                 href="#projects"
-                className="inline-flex items-center justify-center rounded-full border border-[#0f172a]/20 bg-white/70 px-8 py-4 text-base font-bold text-[#111827] hover:bg-white transition"
+                className="inline-flex items-center justify-center rounded-full border border-[#0f172a]/20 bg-white/70 px-8 py-4 text-base font-bold !text-[#111827] hover:bg-white transition"
               >
                 View Case Studies
               </a>

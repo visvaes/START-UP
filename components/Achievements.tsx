@@ -36,7 +36,7 @@ export default function Achievements() {
             return (
               <div
                 key={idx}
-                className="group rounded-[28px] border border-white/10 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:border-[#d7eb7a] hover:bg-white/10 hover:-translate-y-1"
+                className="group live-card rounded-[28px] border border-white/10 bg-white/5 p-8 backdrop-blur-md hover:border-[#d7eb7a] hover:bg-white/10"
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#d7eb7a] text-[#1f2937] font-bold shadow-lg shadow-[#d7eb7a]/20">

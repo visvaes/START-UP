@@ -6,7 +6,10 @@ import FloatingDock from '../components/FloatingDock'
 
 export const metadata: Metadata = {
   title: 'Saspal Technologies — Digital Engineering Studio',
-  description: 'We build scalable digital platforms for startups and scaling teams worldwide, including SaaS, web apps, mobile apps, e-commerce, and digital marketing solutions.'
+  description: 'We build scalable digital platforms for startups and scaling teams worldwide, including SaaS, web apps, mobile apps, e-commerce, and digital marketing solutions.',
+  icons: {
+    icon: '/logo.svg'
+  }
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }){
