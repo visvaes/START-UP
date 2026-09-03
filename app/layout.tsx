@@ -5,7 +5,7 @@ import ChatBotWrapper from '../components/ChatBotWrapper'
 import FloatingDock from '../components/FloatingDock'
 
 export const metadata: Metadata = {
-  title: 'Saspal Technologies — Digital Engineering Studio',
+  title: 'Saspal Technologies — Digital Engineering & AI Solutions',
   description: 'We build scalable digital platforms for startups and scaling teams worldwide, including SaaS, web apps, mobile apps, e-commerce, and digital marketing solutions.',
   icons: {
     icon: '/logo.svg'

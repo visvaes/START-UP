@@ -85,7 +85,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            © {currentYear} Saspal Technologies – Digital Engineering Studio. All rights reserved.
+            © {currentYear} Saspal Technologies – Digital Engineering & AI Solutions. All rights reserved.
           </div>
           <div className="flex gap-6">
             <a href="/contact" className="hover:text-white">Privacy Policy</a>

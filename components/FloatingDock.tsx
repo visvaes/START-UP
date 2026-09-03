@@ -89,13 +89,13 @@ export default function FloatingDock() {
   ]
 
   return (
-    <aside aria-label="Quick contact actions" className="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-3">
+    <aside aria-label="Quick contact actions" className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 flex flex-row items-center gap-3">
       {items.map((item, index) => {
         const content = (
           <div className="relative group flex items-center justify-center">
             {/* Tooltip */}
             <span
-              className={`absolute right-14 whitespace-nowrap rounded-md bg-[#18181b] px-2.5 py-1 text-xs font-medium text-white shadow-md opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 ${
+              className={`absolute bottom-14 whitespace-nowrap rounded-md bg-[#18181b] px-2.5 py-1 text-xs font-medium text-white shadow-md opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 ${
                 activeTooltip === item.id ? 'opacity-100' : ''
               }`}
             >

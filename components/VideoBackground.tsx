@@ -32,21 +32,10 @@ export default function VideoBackground({
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    // Try local video first, if it fails switch to fallback URL
-    const checkVideo = async () => {
-      try {
-        const res = await fetch(localSrc, { method: 'HEAD' })
-        if (res.ok) {
-          setCurrentSrc(localSrc)
-        } else {
-          setCurrentSrc(fallbackSrc)
-        }
-      } catch {
-        setCurrentSrc(fallbackSrc)
-      }
-    }
-    checkVideo()
-  }, [localSrc, fallbackSrc])
+    // Reset to the local source whenever it changes; onError will fall back if it 404s
+    setCurrentSrc(localSrc)
+    setHasError(false)
+  }, [localSrc])
 
   const handleError = () => {
     if (currentSrc !== fallbackSrc) {

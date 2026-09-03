@@ -8,7 +8,7 @@ import { ArrowDown, ChevronRight, ChevronLeft, ShieldCheck, Zap, CheckCircle2, P
 const heroSlides = [
   {
     id: 1,
-    tag: 'Saspal Technologies • Digital Engineering Studio',
+    tag: 'Saspal Technologies • Digital Engineering & AI Solutions',
     badges: ['Enterprise Software', 'Product Engineering'],
     title: 'We build the digital systems ',
     highlight: 'businesses trust to grow.',
